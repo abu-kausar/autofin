@@ -11,7 +11,7 @@ const Banner = () => {
                 </div>
 
                 <Button 
-                    banner={false}
+                    banner={true}
                     color="12141D"
                     className='w-[239px]'
                 />
