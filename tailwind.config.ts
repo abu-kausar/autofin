@@ -13,6 +13,7 @@ const config: Config = {
     extend: {
       colors: {
         bgColor: '#F3F2FD',
+        bgBlack: '#12141D',
         primaryTextColor: '#1C1C1C',
       },
       backgroundImage: {

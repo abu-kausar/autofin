@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import ProfileButton from './landing/ProfileButton';
-import { landinRoutes } from './landing/landingRoutes';
+import { navRoutes } from './landing/landingRoutes';
 import { usePathname } from 'next/navigation';
 
 const Header = () => {
@@ -23,8 +23,8 @@ const Header = () => {
         </div>
         <div className='flex items-center gap-8'>
           {
-            landinRoutes.map((route, idx) => (
-              <Link href={route.href} key={idx} className={`text-lg 2xl:text-2xl text-primaryTextColor ${isActive(route.href)}`}>{route.label}</Link>
+            navRoutes.map((route, idx) => (
+              <Link href={route.url} key={idx} className={`text-lg 2xl:text-2xl text-primaryTextColor ${isActive(route.url)}`}>{route.title}</Link>
             ))
           }
         </div>
