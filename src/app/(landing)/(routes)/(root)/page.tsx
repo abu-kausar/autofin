@@ -3,6 +3,7 @@ import GetApproved from '@/components/presentation/landing/GetApproved';
 import Hero from '@/components/presentation/landing/Hero';
 import HiddenFees from '@/components/presentation/landing/HiddenFees';
 import Reviews from '@/components/presentation/landing/Reviews';
+import Services from '@/components/presentation/landing/Services';
 import React from 'react'
 
 const HomePage = () => {
@@ -10,6 +11,7 @@ const HomePage = () => {
     <div className='font-inter h-auto mx-auto'>
       <Hero/>
       <GetApproved/>
+      <Services/>
       <Reviews />
       <HiddenFees/>
       <Banner/>
