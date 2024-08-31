@@ -24,7 +24,7 @@ const Header = () => {
         <div className='flex items-center gap-8'>
           {
             navRoutes.map((route, idx) => (
-              <Link href={route.url} key={idx} className={`text-lg 2xl:text-2xl text-primaryTextColor ${isActive(route.url)}`}>{route.title}</Link>
+              <Link href={route.url} key={idx} className={`text-lg 2xl:text-2xl ${isActive(route.url)}`}>{route.title}</Link>
             ))
           }
         </div>

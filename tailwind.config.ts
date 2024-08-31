@@ -17,9 +17,8 @@ const config: Config = {
         primaryTextColor: '#1C1C1C',
       },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        whiteGradient: 'linear-gradient(2deg, #CCA8FB 1.75%, #FFF 74.86%)',
+        purpleGradient: 'var(--GR)',
       },
     },
   },

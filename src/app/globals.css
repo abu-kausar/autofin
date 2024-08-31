@@ -8,7 +8,7 @@
 html,
 body,
 :root {
-  
+  --GR: linear-gradient(180deg, #BB7AFE 0%, #6825F5 100%);
 }
 
 * {
