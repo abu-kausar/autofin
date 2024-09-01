@@ -11,7 +11,7 @@ const Hero = () => {
 
                 <Button
                     color='#fff'
-                    className='w-[284px] text-white'
+                    className='w-[284px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]'
                 />
 
                 <div className='flex gap-5 mt-5'>
