@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import ProfileButton from './landing/ProfileButton';
-import { navRoutes } from './landing/landingRoutes';
+import { navRoutes } from './landing/utils/landingRoutes';
 import { usePathname } from 'next/navigation';
 
 const Header = () => {

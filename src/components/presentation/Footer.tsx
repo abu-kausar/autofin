@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { EmailIcon, LocationIcon, PhoneIcon } from '../icons/addressIcons'
-import { footerLinks, policyRoutes } from './landing/landingRoutes'
+import { footerLinks, policyRoutes } from './landing/utils/landingRoutes'
 import Link from 'next/link'
 import { FacebookIcon, InstagramIcon, LinkedinIcon, XIcon, YoutubeIcon } from '../icons/socialIcons'
 

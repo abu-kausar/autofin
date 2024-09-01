@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from './Button'
-import { totalServices } from './totalServices'
+import { totalServices } from './utils/totalServices'
 
 const Services = () => {
     return (

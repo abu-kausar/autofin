@@ -1,5 +1,5 @@
 import React from 'react'
-import { approvalSteps } from './approvalSteps'
+import { approvalSteps } from './utils/approvalSteps'
 
 const GetApproved = () => {
     return (

@@ -1,5 +1,5 @@
-import AgreementTemplate from '@/components/presentation/landing/AgreementTemplate';
-import { policies } from '@/components/presentation/landing/utils/privacy';
+import AgreementTemplate from '@/components/presentation/privacy/AgreementTemplate';
+import { policies } from '@/components/presentation/privacy/utils/privacy';
 import React from 'react'
 
 const PrivacyPolicy = () => {

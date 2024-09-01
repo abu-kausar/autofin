@@ -1,5 +1,5 @@
 import React from 'react'
-import { totalReviews } from './totalReviews'
+import { totalReviews } from './utils/totalReviews'
 import { ArrowRightIcon } from '@/components/icons/arrow-right'
 
 const Reviews = () => {
