@@ -7,7 +7,7 @@ import { FacebookIcon, InstagramIcon, LinkedinIcon, XIcon, YoutubeIcon } from '.
 
 const Footer = () => {
   return (
-    <footer className='max-w-[1600px] bg-bgBlack p-[64px_0_48px_0] mx-auto font-inter'>
+    <footer className=' bg-bgBlack p-[64px_0_48px_0] mx-auto font-inter'>
       <div className='flex flex-col gap-16 mx-auto w-[1294px] h-fit'>
         <div className='flex justify-between'>
           <div className='flex flex-col justify-start items-start gap-1'>
