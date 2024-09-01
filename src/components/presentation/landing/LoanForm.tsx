@@ -24,25 +24,25 @@ const LoanForm = () => {
       <div className='flex gap-5'>
         <div className='w-1/2 flex flex-col gap-3'>
           <h3 className='text-xl font-medium text-bgBlack'>Vehicle Price <span className='text-[#98A2B3]'>(Out The Door Cost)</span></h3>
-          <input {...register("firstName")} placeholder="$10000" className='p-[10px_24px] outline-none focus:border-[#BB7AFE] text-xl font-normal text-bgBlack border border-[#D0D5DD] rounded-[54px] box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05)' />
+          <input {...register("price", { required: true })} placeholder="$10000" className='p-[10px_24px] outline-none focus:border-[#BB7AFE] text-xl font-normal text-bgBlack border border-[#D0D5DD] rounded-[54px] box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05)' />
         </div>
 
         <div className='w-1/2 flex flex-col gap-3'>
           <h3 className='text-xl font-medium text-bgBlack'>Downpayment</h3>
-          <input {...register("firstName")} placeholder="$3000" className='p-[10px_24px] outline-none focus:border-[#BB7AFE] text-xl font-normal text-bgBlack border border-[#D0D5DD] rounded-[54px] box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05)' />
+          <input {...register("downPayment", { required: true })} placeholder="$3000" className='p-[10px_24px] outline-none focus:border-[#BB7AFE] text-xl font-normal text-bgBlack border border-[#D0D5DD] rounded-[54px] box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05)' />
         </div>
       </div>
 
       <div className='flex mt-9 gap-5'>
         <div className='w-1/2 flex flex-col gap-3'>
           <h3 className='text-xl font-medium text-bgBlack'>Interest Rate <span className='text-[#98A2B3]'>(APR%)</span></h3>
-          <input {...register("firstName")} placeholder="4.99" className='p-[10px_24px] outline-none focus:border-[#BB7AFE] text-xl font-normal text-bgBlack border border-[#D0D5DD] rounded-[54px] box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05)' />
+          <input {...register("interestRate", { required: true })} placeholder="4.99" className='p-[10px_24px] outline-none focus:border-[#BB7AFE] text-xl font-normal text-bgBlack border border-[#D0D5DD] rounded-[54px] box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05)' />
         </div>
 
         <div className='w-1/2 flex flex-col gap-3'>
           <h3 className='text-xl font-medium text-bgBlack'>Loan Term</h3>
-          <select {...register("category", { required: true })} className='p-[10px_24px] outline-none focus:border-[#BB7AFE] text-xl font-normal text-bgBlack border border-[#D0D5DD] rounded-[54px] box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05)'>
-            <option value="">Select...</option>
+          <select {...register("duration", { required: true })} className='p-[10px_24px] h-[50px] outline-none focus:border-[#BB7AFE] text-xl font-normal text-bgBlack border border-[#D0D5DD] rounded-[54px] box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05)'>
+            <option value="">Select year</option>
             <option value="A">Option A</option>
             <option value="B">Option B</option>
           </select>
