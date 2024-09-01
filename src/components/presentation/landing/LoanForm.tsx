@@ -19,8 +19,10 @@ const LoanForm = ({ setIsCalculated = () => {}, setLoanDetails = () => {} }: Loa
     const monthlyInterestRate = (annualInterestRate / 100) / 12;
     const loanTenureMonths = loanTenureYears * 12;
 
-    const EMI = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTenureMonths)) /
-      (Math.pow(1 + monthlyInterestRate, loanTenureMonths) - 1);
+    // const EMI = (loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTenureMonths)) /
+    //   (Math.pow(1 + monthlyInterestRate, loanTenureMonths) - 1);
+
+    const EMI = (loanAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -loanTenureMonths));
 
     const totalPayment = EMI * loanTenureMonths;
 

@@ -73,7 +73,7 @@ export const footerLinks = [
             { 
                 id: 1,
                 title: "About us", 
-                url: "/about"  
+                url: "/about-us"  
             },
             { 
                 id: 2,
