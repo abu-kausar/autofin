@@ -93,7 +93,7 @@ export const footerLinks = [
             { 
                 id: 5,
                 title: "Privacy Policy", 
-                url: "/privacy" 
+                url: "/privacy-policy" 
             },
         ],
     }
