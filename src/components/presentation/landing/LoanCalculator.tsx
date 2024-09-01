@@ -6,7 +6,7 @@ import CalculatedBanner from './CalculatedBanner'
 
 const LoanCalculator = () => {
   const [isCalculated, setIsCalculated] = useState(false);
-  const [loanDetails, setLoanDetails] = useState<{ monthlyInstallment: number; totalPayment: number } | null>(null);
+  const [loanDetails, setLoanDetails] = useState<{ monthlyInstallment: string; totalPayment: string } | null>(null);
 
   return (
     <div className='mb-[80px] mx-auto max-w-[1294px] mt-[30px] flex items-center gap-5'>
@@ -31,4 +31,4 @@ const LoanCalculator = () => {
   )
 }
 
-export default LoanCalculator
+export default LoanCalculator;

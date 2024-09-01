@@ -1,9 +1,14 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
+interface LoanDetails {
+  monthlyInstallment: string;
+  totalPayment: string;
+}
+
 interface LoanProps {
   setIsCalculated?: (isCalculated: boolean) => void;
-  setLoanDetails?: (details: object) => void;
+  setLoanDetails?: React.Dispatch<React.SetStateAction<LoanDetails | null>>;
 }
 
 const LoanForm = ({ setIsCalculated = () => {}, setLoanDetails = () => {} }: LoanProps) => {
@@ -35,7 +40,7 @@ const LoanForm = ({ setIsCalculated = () => {}, setLoanDetails = () => {} }: Loa
 
     const loanDetails = calculateLoan(priceNum, downpaymentNum, interestRateNum, tenureNum);
 
-    setLoanDetails(loanDetails);
+    setLoanDetails(loanDetails); // This will now match the expected type
     setIsCalculated(true);
   };
 
@@ -64,9 +69,10 @@ const LoanForm = ({ setIsCalculated = () => {}, setLoanDetails = () => {} }: Loa
             <h3 className='text-xl font-medium text-bgBlack'>Loan Term</h3>
             <select {...register("loanTenureYears", { required: true })} className='p-[10px_24px] h-[50px] outline-none focus:border-[#BB7AFE] text-xl font-normal text-bgBlack border border-[#D0D5DD] rounded-[54px] box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05)'>
               <option value="">Select year</option>
+              <option value="3">3 years</option>
+              <option value="4">4 years</option>
               <option value="5">5 years</option>
-              <option value="10">10 years</option>
-              <option value="15">15 years</option>
+              <option value="6">6 years</option>
             </select>
           </div>
         </div>
