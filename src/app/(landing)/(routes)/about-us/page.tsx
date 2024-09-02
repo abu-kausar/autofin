@@ -13,6 +13,7 @@ const AboutUs = () => {
 
       <div className='my-20'>
         <p className='text-base font-normal text-[#475467] text-center'>We’re trusted by some of the best</p>
+        
       </div>
 
       <div className='grid grid-cols-3 gap-3 mx-auto'>
@@ -24,6 +25,8 @@ const AboutUs = () => {
       </div>
 
       <div className='flex flex-col py-8 gap-8'>
+        <img src="/images/about/collageAvatars.png" alt="avatars" className='h-[56px] w-[120px] mx-auto'/>
+
         <div className='flex flex-col gap-2'>
           <p className='text-xl font-semibold text-[#101828] text-center'>Still have questions?</p>
           <p className='text-lg font-normal text-[#475467] text-center'>Can’t find the answer you’re looking for? Please chat to our friendly team.</p>
