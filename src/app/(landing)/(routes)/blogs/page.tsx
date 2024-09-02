@@ -1,5 +1,6 @@
 import BlogCard from '@/components/presentation/blog/BlogCard';
 import { blogs } from '@/components/presentation/blog/blogData';
+import Link from 'next/link';
 import React from 'react'
 
 const Blogs = () => {
@@ -14,10 +15,11 @@ const Blogs = () => {
       <div className='grid grid-cols-2 gap-8'>
         {
           blogs.map((blog, idx) => (
-            <BlogCard 
-              key={idx} 
-              data={blog}
-            />
+            <Link href={`/blogs/${blog.slug}`} key={idx}>
+              <BlogCard
+                data={blog}
+              />
+            </Link>
           ))
         }
       </div>
