@@ -32,7 +32,7 @@ const AboutUs = () => {
           <p className='text-lg font-normal text-[#475467] text-center'>Can’t find the answer you’re looking for? Please chat to our friendly team.</p>
         </div>
 
-        <button className='w-[220px] leading-[43px] flex items-center justify-center mx-auto bg-purpleGradient text-white text-center rounded-[43px] p-[16px_28px] text-2xl font-semibold hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]'>
+        <button className='w-[220px] h-[66px] leading-[43px] flex items-center justify-center mx-auto bg-purpleGradient text-white text-center rounded-[43px] p-[16px_28px] text-2xl font-semibold hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]'>
           Get in touch
         </button>
       </div>
