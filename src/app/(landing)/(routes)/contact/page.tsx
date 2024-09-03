@@ -1,3 +1,4 @@
+'use client'
 import ContactForm from '@/components/presentation/contact/ContactForm'
 import React from 'react'
 import { contactsData } from '../../../../components/presentation/contact/contactData'
@@ -12,7 +13,7 @@ const ContactPage = () => {
             <h1 className='text-4xl font-semibold text-[#101828]'>Get in touch</h1>
             <p className='text-xl font-normal text-[#475467]'>Our friendly team would love to hear from you.</p>
           </div>
-          {/* <ContactForm/> */}
+          <ContactForm/>
         </div>
       </div>
       <div className='w-[30%] flex flex-col gap-10'>
