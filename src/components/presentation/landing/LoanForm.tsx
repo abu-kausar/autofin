@@ -11,7 +11,7 @@ interface LoanProps {
   setLoanDetails?: React.Dispatch<React.SetStateAction<LoanDetails | null>>;
 }
 
-const LoanForm = ({ setIsCalculated = () => {}, setLoanDetails = () => {} }: LoanProps) => {
+const LoanForm = ({ setIsCalculated = () => { }, setLoanDetails = () => { } }: LoanProps) => {
   const { register, handleSubmit } = useForm();
 
   function calculateLoan(price: number, downpayment: number, annualInterestRate: number, loanTenureYears: number) {
@@ -69,8 +69,12 @@ const LoanForm = ({ setIsCalculated = () => {}, setLoanDetails = () => {} }: Loa
 
           <div className='w-1/2 flex flex-col gap-3'>
             <h3 className='text-xl font-medium text-bgBlack'>Loan Term</h3>
-            <select {...register("loanTenureYears", { required: true })} className='p-[10px_24px] h-[50px] outline-none focus:border-[#BB7AFE] text-xl font-normal text-bgBlack border border-[#D0D5DD] rounded-[54px] box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05)'>
-              <option value="">Select year</option>
+            <select
+              {...register("loanTenureYears", { required: true })}
+              className='p-[10px_24px] h-[50px] outline-none focus:border-[#BB7AFE] text-xl font-normal text-bgBlack border border-[#D0D5DD] rounded-[54px] select-arrow-padding select-with-placeholder'
+              defaultValue=""
+            >
+              <option value="" disabled hidden>Select year</option>
               <option value="3">3 years</option>
               <option value="4">4 years</option>
               <option value="5">5 years</option>
