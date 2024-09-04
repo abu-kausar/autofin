@@ -17,7 +17,7 @@ const ProfileForm = () => {
     }
 
     return (
-        <div className='my-6 border-t border-gray-200'>
+        <div className='mt-6 border-t border-gray-200'>
             <form onSubmit={handleSubmit(onSubmit)} className='w-full mt-6 flex flex-col gap-6'>
                 <div className='w-full flex gap-3'>
                     <div className='w-1/2 flex flex-col'>
@@ -52,16 +52,15 @@ const ProfileForm = () => {
                 </div>
 
                 <div className='w-full flex flex-col'>
-                    <h3 className='text-sm font-medium text-[#344054] mb-[6px]'>Date</h3>
+                    <h3 className='text-sm font-medium text-[#344054]'>Date</h3>
                     <input
                         type="date"
                         {...register('date', { required: 'Date is required' })}
-                        placeholder="Select a date"
-                        className='p-[10px_14px] border border-[#D0D5DD] rounded-[52px] outline-none focus:border-[#BB7AFE]'
+                        placeholder="DD/MM/YYYY"
+                        className='p-[10px_14px] border border-[#D0D5DD] rounded-[52px] outline-none focus:border-[#BB7AFE] placeholder:uppercase'
                     />
                     {errors.date && <span className="text-red-500">{errors.date.message}</span>}
                 </div>
-                
             </form>
         </div>
     )
