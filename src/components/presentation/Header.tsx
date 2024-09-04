@@ -14,13 +14,14 @@ const Header = () => {
       ? "text-[#BB7AFE] border-b-2 border-[#BB7AFE]" : "text-primaryTextColor";
 
   return (
-    <div className='max-w-[1600px] mx-auto font-inter'>
+    <div className='2xl:w-[1536px] mx-auto font-inter border-b border-[#05010D1A]'>
       <div className='flex justify-between items-center px-8 py-3'>
         <div className='flex justify-start'>
           <Link href='/'>
             <Image src="/images/landing/logo.svg" alt='logo' width={190} height={46} />
           </Link>
         </div>
+        
         <div className='flex items-center gap-8'>
           {
             navRoutes.map((route, idx) => (
@@ -28,7 +29,10 @@ const Header = () => {
             ))
           }
         </div>
-        <ProfileButton />
+
+        <Link href="/profile">
+          <ProfileButton />
+        </Link>
       </div>
     </div>
   )

@@ -62,7 +62,7 @@ const ContactForm = () => {
       </div>
 
       <div className='w-full flex flex-col'>
-        <h3 className='text-sm font-medium text-[#344054] mb-[6px]'>Phone number</h3>
+        <h3 className='text-sm font-medium text-[#344054] mb-[6px]'>Message</h3>
         <textarea
           {...register('message', { required: 'Message is required' })}
           placeholder="Leave us a message..."

@@ -8,7 +8,7 @@ const FaqPage = () => {
     <>
       <div className='flex text-center flex-col gap-3 p-[96px_0_96px_0]'>
         <p className='text-base font-semibold text-[#7F56D9]'>FAQs</p>
-        <h1 className='text-5xl font-semibold text-[#101828]'>We’re here to help</h1>
+        <h1 className='text-5xl font-semibold text-gray-900'>We’re here to help</h1>
         <p className='text-xl font-normal text-[#475467] mt-3'>Have questions? We’re here to help.</p>
       </div>
 
@@ -25,7 +25,7 @@ const FaqPage = () => {
           <Image src="/images/about/collageAvatars.png" alt='avatars' width={120} height={56} className='mx-auto' />
 
           <span>
-            <p className='text-xl font-semibold text-[#101828]'>Still have questions?</p>
+            <p className='text-xl font-semibold text-gray-900'>Still have questions?</p>
             <p className='text-lg font-normal text-[#475467]'>Can’t find the answer you’re looking for? Please chat to our friendly team.</p>
           </span>
 

@@ -10,7 +10,7 @@ const ContactPage = () => {
       <div className='w-[70%] flex items-center justify-center'>
         <div className='flex flex-col gap-12'>
           <div className='flex flex-col gap-5'>
-            <h1 className='text-4xl font-semibold text-[#101828]'>Get in touch</h1>
+            <h1 className='text-4xl font-semibold text-gray-900'>Get in touch</h1>
             <p className='text-xl font-normal text-[#475467]'>Our friendly team would love to hear from you.</p>
           </div>
           <ContactForm/>
@@ -23,7 +23,7 @@ const ContactPage = () => {
               <Image src={contact.image} width={40} height={40} alt='email'/>
 
               <div className='flex flex-col gap-1'>
-                <h1 className='text-lg font-semibold text-[#101828]'>{contact.title}</h1>
+                <h1 className='text-lg font-semibold text-gray-900'>{contact.title}</h1>
                 <p className='text-base font-normal text-[#475467]'>{contact.access}</p>
                 <p className='text-base font-semibold text-[#9A57FE]'>{contact.content}</p>
               </div>

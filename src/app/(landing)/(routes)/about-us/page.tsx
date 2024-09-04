@@ -7,7 +7,7 @@ const AboutUs = () => {
     <div className='flex flex-col pt-[56px] px-12 mx-auto max-w-[1294px]'>
       <div className='w-[768px] mx-auto'>
         <p className='text-base font-semibold text-[#7F56D9] text-center'>About us</p>
-        <h1 className='text-[48px] font-semibold text-[#101828] text-center'>Our mission is to increase the GDP of your startup</h1>
+        <h1 className='text-[48px] font-semibold text-gray-900 text-center'>Our mission is to increase the GDP of your startup</h1>
         <p className='mt-4 text-xl font-normal text-[#475467] text-center'>Untitled is a technology company that builds infrastructure for your startup, so you don’t have to. Businesses of every size—from new startups to public companies—use our software to manage their businesses.</p>
       </div>
 
@@ -28,7 +28,7 @@ const AboutUs = () => {
         <img src="/images/about/collageAvatars.png" alt="avatars" className='h-[56px] w-[120px] mx-auto'/>
 
         <div className='flex flex-col gap-2'>
-          <p className='text-xl font-semibold text-[#101828] text-center'>Still have questions?</p>
+          <p className='text-xl font-semibold text-gray-900 text-center'>Still have questions?</p>
           <p className='text-lg font-normal text-[#475467] text-center'>Can’t find the answer you’re looking for? Please chat to our friendly team.</p>
         </div>
 
