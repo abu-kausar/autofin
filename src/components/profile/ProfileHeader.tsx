@@ -3,7 +3,7 @@ import React from 'react'
 const ProfileHeader = () => {
     return (
         <div className='w-full'>
-            <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg h-[240px]">
+            <div className="bg-gradient-to-r from-[#FFB5D6] via-[#FFADF5] to-[#FFCFCB] rounded-lg h-[240px]">
             </div>
             <div className="-mt-16">
                 <div className="flex items-end w-full">

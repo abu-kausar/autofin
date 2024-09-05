@@ -16,10 +16,12 @@ const config: Config = {
         bgBlack: '#12141D',
         primaryTextColor: '#1C1C1C',
         'gray-50': 'var(--Gray-50)',
+        'gray-100': 'var(--Gray-100)',
         'gray-200': 'var(--Gray-200)',
         'gray-600': 'var(--Gray-600)',
         'gray-700': 'var(--Gray-700)',
         'gray-900': 'var(--Gray-900)',
+        'success-50': 'var(--Success-50)',
         'success-700': 'var(--Success-700)',
       },
       backgroundImage: {

@@ -28,8 +28,8 @@ const PasswordComponent = () => {
             <input
               type='password'
               {...register('current_password', { required: 'Password is required' })}
-              placeholder="*******"
-              className='p-[10px_14px] border border-[#D0D5DD] rounded-[52px] outline-none focus:border-[#BB7AFE]'
+              placeholder="current password"
+              className='p-[10px_14px] h-11 border border-[#D0D5DD] rounded-[52px] outline-none focus:border-[#BB7AFE]'
             />
             {errors.current_password && <span className="text-red-500">{errors.current_password.message}</span>}
           </div>
@@ -39,7 +39,7 @@ const PasswordComponent = () => {
             <input
               type='password'
               {...register('new_password', { required: 'Password is required' })}
-              placeholder="*******"
+              placeholder="new password"
               className='p-[10px_14px] border border-[#D0D5DD] rounded-[52px] outline-none focus:border-[#BB7AFE]'
             />
             {errors.new_password && <span className="text-red-500">{errors.new_password.message}</span>}
@@ -50,7 +50,7 @@ const PasswordComponent = () => {
             <input
               type='password'
               {...register('confirm_password', { required: 'Password is required' })}
-              placeholder="*******"
+              placeholder="confirm password"
               className='p-[10px_14px] border border-[#D0D5DD] rounded-[52px] outline-none focus:border-[#BB7AFE]'
             />
             {errors.confirm_password && <span className="text-red-500">{errors.confirm_password.message}</span>}
