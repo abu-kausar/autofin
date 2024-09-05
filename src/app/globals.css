@@ -9,8 +9,12 @@ html,
 body,
 :root {
   --GR: linear-gradient(180deg, #BB7AFE 0%, #6825F5 100%);
+  --Gray-50: #F9FAFB;
   --Gray-200: #EAECF0;
+  --Gray-600: #475467;
+  --Gray-700: #344054;
   --Gray-900: #101828;
+  --Success-700: #027A48;
 }
 
 * {

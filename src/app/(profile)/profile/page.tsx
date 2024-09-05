@@ -42,21 +42,29 @@ const ProfilePage = () => {
             }
           </div>
 
-          <div className='w-full border border-[#EAECF0] rounded-[12px]'>
-            <div className='p-6'>
-              {renderMenuDetails()}
-            </div>
+          {
+            selectedMenu === 'my loans' ?
+              <>
+                {renderMenuDetails()}
+              </> 
+              :
+              <div className='w-full border border-[#EAECF0] rounded-[12px]'>
+                <div className='p-6'>
+                  {renderMenuDetails()}
+                </div>
 
-            <div className='border-t border-[#EAECF0] flex flex-row-reverse gap-3 p-[16px_24px]'>
-              <button className='px-4 bg-purpleGradient rounded-[43px] text-sm font-semibold text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] h-11'>
-                Save changes
-              </button>
+                <div className='border-t border-[#EAECF0] flex flex-row-reverse gap-3 p-[16px_24px]'>
+                  <button className='px-4 bg-purpleGradient rounded-[43px] text-sm font-semibold text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] h-11'>
+                    Save changes
+                  </button>
 
-              <button className='px-4 border border-[#BB7AFE] rounded-[43px] text-sm font-semibold text-[#BB7AFE] hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] h-11'>
-                Cancel
-              </button>
-            </div>
-          </div>
+                  <button className='px-4 border border-[#BB7AFE] rounded-[43px] text-sm font-semibold text-[#BB7AFE] hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] h-11'>
+                    Cancel
+                  </button>
+                </div>
+              </div>
+          }
+
         </div>
       </div>
     </div>
