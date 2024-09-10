@@ -65,3 +65,14 @@ body,
   color: #000000;
   /* Placeholder color when invalid (i.e., not selected) */
 }
+
+/* Hide scrollbar but keep functionality */
+.scroll-hidden-functional {
+  overflow: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scroll-hidden-functional::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
