@@ -21,17 +21,17 @@ const ApplyModal = ({ isVisible, onClose }: ModalProps) => {
         if (state === 'pre') {
           return <IntroState setState={setState}/>;
         } else if (state === 'personal') {
-          return <PersonalInfo setState={setState}/>;
+          return <PersonalInfo state={state} setState={setState}/>;
         } else if (state === 'contact') {
-          return <ContactInfo setState={setState}/>;
+          return <ContactInfo state={state}  setState={setState}/>;
         }else if (state === 'finance') {
-          return <FinanceInfo setState={setState}/>;
+          return <FinanceInfo state={state} setState={setState}/>;
         }else if (state === 'cosign') {
-          return <CoSigner setState={setState}/>;
+          return <CoSigner state={state} setState={setState}/>;
         }else if (state === 'terms') {
-          return <Terms setState={setState}/>;
+          return <Terms state={state} setState={setState}/>;
         }else if (state === 'ssn') {
-          return <SSN setState={setState}/>;
+          return <SSN state={state} setState={setState}/>;
         }else if (state === 'loading') {
           return <LoadingState/>;
         } else {

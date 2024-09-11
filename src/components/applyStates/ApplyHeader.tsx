@@ -1,12 +1,14 @@
 import React from 'react'
 import { Dispatch, SetStateAction } from "react";
+import ProgressBar from './progressBar';
 
 interface Props {
+    state: string;
     setState: Dispatch<SetStateAction<string>>;
     prev: string;
 }
 
-const ApplyHeader = ({ setState, prev } : Props) => {
+const ApplyHeader = ({ state, setState, prev } : Props) => {
     return (
         <div 
             onClick={() => setState(prev)}
@@ -15,6 +17,7 @@ const ApplyHeader = ({ setState, prev } : Props) => {
                 <img src="/images/chevron-left.svg" alt="left" className="cursor-pointer" />
                 <h2 className='m-auto text-lg font-semibold text-[#12141D]'>Get Pre-Qualified</h2>
             </div>
+            <ProgressBar state={state}/>
         </div>
     )
 }

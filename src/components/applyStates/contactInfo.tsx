@@ -6,6 +6,7 @@ import InputField from './InputField';
 import { Dispatch, SetStateAction } from "react";
 
 interface PersonalProps {
+    state: string;
     setState: Dispatch<SetStateAction<string>>;
 }
 
@@ -18,7 +19,7 @@ export interface ContactFormProps {
     phone: number;
 }
 
-const ContactInfo = ({ setState } : PersonalProps) => {
+const ContactInfo = ({ state, setState } : PersonalProps) => {
     const { register, formState: { errors }, handleSubmit } = useForm<ContactFormProps>();
 
     const onSubmit: SubmitHandler<ContactFormProps> = (data) => {
@@ -27,7 +28,7 @@ const ContactInfo = ({ setState } : PersonalProps) => {
 
     return (
         <div className='flex flex-col scroll-hidden-functional'>
-            <ApplyHeader setState={setState} prev="personal"/>
+            <ApplyHeader state={state} setState={setState} prev="personal"/>
             <div className='max-h-[500px] overflow-y-auto flex flex-col gap-6 scroll-hidden-functional'>
                 <div className='py-5'>
                     <h1 className='text-lg font-semibold text-[#12141D]'>Contact Information</h1>

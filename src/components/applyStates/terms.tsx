@@ -4,6 +4,7 @@ import ApplyHeader from './ApplyHeader'
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 interface SetProps {
+    state: string;
     setState: Dispatch<SetStateAction<string>>;
 }
 
@@ -11,7 +12,7 @@ interface AgreementProps {
     agree: boolean;
 }
 
-const Terms = ({ setState }: SetProps) => {
+const Terms = ({ state, setState }: SetProps) => {
     const { register, formState: { errors }, handleSubmit } = useForm<AgreementProps>();
 
     const onSubmit: SubmitHandler<AgreementProps> = (data) => {
@@ -20,7 +21,7 @@ const Terms = ({ setState }: SetProps) => {
 
     return (
         <div className='flex flex-col scroll-hidden-functional'>
-            <ApplyHeader setState={setState} prev="cosign" />
+            <ApplyHeader state={state} setState={setState} prev="cosign" />
             <div className='max-h-[500px] overflow-y-auto flex flex-col gap-6 scroll-hidden-functional'>
                 <div className='py-4'>
                     <h1 className='text-lg font-semibold text-[#12141D]'>Term and Conditions</h1>

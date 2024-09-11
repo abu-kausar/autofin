@@ -6,6 +6,7 @@ import InputField from './InputField';
 import { Dispatch, SetStateAction } from "react";
 
 interface PersonalProps {
+    state: string;
     setState: Dispatch<SetStateAction<string>>;
 }
 
@@ -16,7 +17,7 @@ export interface PersonalFormProps {
     date: string;
 }
 
-const PersonalInfo = ({ setState } : PersonalProps) => {
+const PersonalInfo = ({ state, setState } : PersonalProps) => {
     const { register, formState: { errors }, handleSubmit } = useForm<PersonalFormProps>();
 
     const onSubmit: SubmitHandler<PersonalFormProps> = (data) => {
@@ -25,7 +26,7 @@ const PersonalInfo = ({ setState } : PersonalProps) => {
 
     return (
         <div className='flex flex-col scroll-hidden-functional'>
-            <ApplyHeader setState={setState} prev="pre"/>
+            <ApplyHeader state={state} setState={setState} prev="pre"/>
             <div className='max-h-[500px] overflow-y-auto flex flex-col gap-6 scroll-hidden-functional'>
                 <div className='py-5'>
                     <h1 className='text-lg font-semibold text-[#12141D]'>Personal Information</h1>

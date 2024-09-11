@@ -4,6 +4,7 @@ import ApplyFooter from './Footer';
 import ApplyHeader from './ApplyHeader';
 
 interface SetProps {
+    state: string;
     setState: Dispatch<SetStateAction<string>>;
 }
 
@@ -14,7 +15,7 @@ interface SignerProps {
     monthlyIncome: string;
 }
 
-const CoSigner = ({ setState }: SetProps) => {
+const CoSigner = ({ state, setState }: SetProps) => {
     const { register, formState: { errors }, handleSubmit } = useForm<SignerProps>();
 
     const onSubmit: SubmitHandler<SignerProps> = (data) => {
@@ -23,7 +24,7 @@ const CoSigner = ({ setState }: SetProps) => {
 
     return (
         <div className='flex flex-col scroll-hidden-functional'>
-            <ApplyHeader setState={setState} prev="finance" />
+            <ApplyHeader state={state} setState={setState} prev="finance" />
             <div className='max-h-[500px] overflow-y-auto flex flex-col gap-6 scroll-hidden-functional'>
 
                 <div className='py-5'>

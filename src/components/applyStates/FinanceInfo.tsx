@@ -6,6 +6,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import InputField from './InputField';
 
 interface FinanceProps {
+    state: string;
     setState: Dispatch<SetStateAction<string>>;
 }
 
@@ -16,7 +17,7 @@ interface FinanceFormProps {
     monthlyIncome: string;
 }
 
-const FinanceInfo = ({ setState }: FinanceProps) => {
+const FinanceInfo = ({ state, setState }: FinanceProps) => {
     const { register, formState: { errors }, handleSubmit } = useForm<FinanceFormProps>();
 
     const onSubmit: SubmitHandler<FinanceFormProps> = (data) => {
@@ -25,7 +26,7 @@ const FinanceInfo = ({ setState }: FinanceProps) => {
 
     return (
         <div className='flex flex-col scroll-hidden-functional'>
-            <ApplyHeader setState={setState} prev="contact" />
+            <ApplyHeader state={state} setState={setState} prev="contact" />
             <div className='max-h-[500px] overflow-y-auto flex flex-col gap-6 scroll-hidden-functional'>
                 <div className='py-5'>
                     <h1 className='text-lg font-semibold text-[#12141D]'>Financial Information</h1>
