@@ -90,7 +90,7 @@ const ContactInfo = ({ setState } : PersonalProps) => {
                     />
                 </form>
             </div>
-            <ApplyFooter setState={setState} next="contact"/>
+            <ApplyFooter setState={setState} next="finance"/>
         </div>
     );
 }

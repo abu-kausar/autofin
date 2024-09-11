@@ -76,3 +76,28 @@ body,
 .scroll-hidden-functional::-webkit-scrollbar {
   display: none;  /* Chrome, Safari and Opera */
 }
+
+.custom-radio {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #D0D5DD;
+  border-radius: 50%;
+  position: relative;
+}
+
+.custom-radio:checked {
+  border-color: #9A57FE; /* Border for checked state */
+}
+
+.custom-radio:checked::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: #9A57FE;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

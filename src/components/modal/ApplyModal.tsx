@@ -3,6 +3,8 @@ import ModalWrapper from './ModalWrapper';
 import IntroState from '../applyStates/intro';
 import PersonalInfo from '../applyStates/personalInfo';
 import ContactInfo from '../applyStates/contactInfo';
+import FinanceInfo from '../applyStates/FinanceInfo';
+import CoSigner from '../applyStates/coSigner';
 
 interface ModalProps {
     isVisible: boolean;
@@ -19,6 +21,10 @@ const ApplyModal = ({ isVisible, onClose }: ModalProps) => {
           return <PersonalInfo setState={setState}/>;
         } else if (state === 'contact') {
           return <ContactInfo setState={setState}/>;
+        }else if (state === 'finance') {
+          return <FinanceInfo setState={setState}/>;
+        }else if (state === 'cosign') {
+          return <CoSigner setState={setState}/>;
         } else {
           return <h1>biday</h1>;
         }
