@@ -22,7 +22,7 @@ const SSN = ({ state, setState }: SetProps) => {
 
     return (
         <div className='flex flex-col scroll-hidden-functional'>
-            <ApplyHeader state={state} setState={setState} prev="terms" />
+            <ApplyHeader setState={setState} prev="terms" />
             <div className='max-h-[500px] overflow-y-auto flex flex-col gap-6 scroll-hidden-functional'>
 
                 <div className='py-5'>
