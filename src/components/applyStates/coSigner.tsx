@@ -89,7 +89,7 @@ const CoSigner = ({ setState }: SetProps) => {
                     </div>
                 </form>
             </div>
-            <ApplyFooter setState={setState} next="cosign" />
+            <ApplyFooter setState={setState} next="terms" />
         </div>
     )
 }

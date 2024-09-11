@@ -5,6 +5,8 @@ import PersonalInfo from '../applyStates/personalInfo';
 import ContactInfo from '../applyStates/contactInfo';
 import FinanceInfo from '../applyStates/FinanceInfo';
 import CoSigner from '../applyStates/coSigner';
+import Terms from '../applyStates/terms';
+import SSN from '../applyStates/ssn';
 
 interface ModalProps {
     isVisible: boolean;
@@ -25,6 +27,10 @@ const ApplyModal = ({ isVisible, onClose }: ModalProps) => {
           return <FinanceInfo setState={setState}/>;
         }else if (state === 'cosign') {
           return <CoSigner setState={setState}/>;
+        }else if (state === 'terms') {
+          return <Terms setState={setState}/>;
+        }else if (state === 'ssn') {
+          return <SSN setState={setState}/>;
         } else {
           return <h1>biday</h1>;
         }
