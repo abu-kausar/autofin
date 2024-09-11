@@ -7,6 +7,7 @@ import FinanceInfo from '../applyStates/FinanceInfo';
 import CoSigner from '../applyStates/coSigner';
 import Terms from '../applyStates/terms';
 import SSN from '../applyStates/ssn';
+import LoadingState from '../applyStates/loadingState';
 
 interface ModalProps {
     isVisible: boolean;
@@ -31,6 +32,8 @@ const ApplyModal = ({ isVisible, onClose }: ModalProps) => {
           return <Terms setState={setState}/>;
         }else if (state === 'ssn') {
           return <SSN setState={setState}/>;
+        }else if (state === 'loading') {
+          return <LoadingState/>;
         } else {
           return <h1>biday</h1>;
         }

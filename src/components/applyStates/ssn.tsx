@@ -41,7 +41,7 @@ const SSN = ({ setState }: SetProps) => {
                     </div>
                 </form>
             </div>
-            <ApplyFooter/>
+            <ApplyFooter setState={setState} next='loading'/>
         </div>
     )
 }
