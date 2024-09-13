@@ -11,7 +11,6 @@ const HomePage = () => {
   return (
     <div className='font-inter h-auto mx-auto'>
       <Hero/>
-      <LoanCalculator/>
       <GetApproved/>
       <Services/>
       <Reviews />

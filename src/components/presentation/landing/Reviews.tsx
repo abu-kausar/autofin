@@ -8,7 +8,7 @@ const Reviews = () => {
     const [rightIsHovered, setRightIsHovered] = useState(false);
 
     return (
-        <div className='mx-auto max-w-[1294px] font-inter mb-[80px]'>
+        <div className='mx-auto max-w-[1294px] font-inter my-[96px]'>
             <div className='flex flex-col gap-[50px]'>
                 <div className='flex flex-col gap-[10px]'>
                     <p className='text-lg font-normal text-bgBlack opacity-90'>REVIEWS</p>
