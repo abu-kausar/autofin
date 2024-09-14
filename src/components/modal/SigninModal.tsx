@@ -37,6 +37,7 @@ const SigninModal = ({ isVisible, onClose }: ModalProps) => {
             loginState ?
                 signInWithEmailAndPassword(auth, email, password)
                     .then(result => {
+                        onClose();
                         console.log(result.user);
                     })
                     .catch(err => {
@@ -44,8 +45,9 @@ const SigninModal = ({ isVisible, onClose }: ModalProps) => {
                     }) :
                 createUserWithEmailAndPassword(auth, email, password)
                     .then(result => {
-                        console.log(result.user);
+                        onClose();
                         setLoginState(false);
+                        console.log(result.user);
                     })
                     .catch(err => {
                         console.log(err);
@@ -119,6 +121,13 @@ const SigninModal = ({ isVisible, onClose }: ModalProps) => {
                     <button type="submit" className="w-full h-[46px] whitespace-nowrap text-base font-semibold bg-purpleGradient rounded-[43px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]">
                         {loginState ? 'Sign in' : 'Sign up'}
                     </button>
+
+                    <div className='text-center text-sm'>
+                        { loginState ? 
+                            <p>Have not any account? <span onClick={() => setLoginState(false)} className='underline cursor-pointer text-[#9A57FE]'>Sign up</span></p> : 
+                            <p>Already have an account?<span onClick={() => setLoginState(true)} className='underline cursor-pointer text-[#9A57FE]'>Sign in</span></p>
+                        }
+                    </div>
 
                     <div className='flex items-center gap-3 justify-evenly overflow-hidden'>
                         <hr className='border bg-gray-200 w-[50%]' />
