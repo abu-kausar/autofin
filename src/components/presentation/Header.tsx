@@ -2,9 +2,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import ProfileButton from './landing/ProfileButton';
 import { navRoutes } from './landing/utils/landingRoutes';
 import { usePathname } from 'next/navigation';
+import Dropdown from './Dropdown';
 
 const Header = () => {
   const pathname = usePathname();
@@ -30,9 +30,7 @@ const Header = () => {
           }
         </div>
 
-        <Link href="/profile">
-          <ProfileButton />
-        </Link>
+        <Dropdown/>
       </div>
     </div>
   )
