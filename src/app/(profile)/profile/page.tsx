@@ -13,7 +13,7 @@ const ProfilePage = () => {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className='flex items-center justify-center w-full min-h-[100vh]'>Loading...</div>;
   }
 
   const renderMenuDetails = () => {
