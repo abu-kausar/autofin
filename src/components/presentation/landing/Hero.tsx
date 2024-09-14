@@ -4,9 +4,11 @@ import Button from './Button'
 import ApplyModal from '@/components/modal/ApplyModal';
 import LoanCalculator from './LoanCalculator';
 import SigninModal from '@/components/modal/SigninModal';
+import { useAuth } from '@/hooks/AuthProvider';
 
 const Hero = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const { user } = useAuth();
 
     const handleModalToggle = () => {
         setIsModalVisible(true);
@@ -25,6 +27,7 @@ const Hero = () => {
                     <p className='text-xl font-normal text-[#7D7F84] text-opacity-80'>AutoFin Credit streamlines the auto financing process, offering a straightforward application and personalized solutions to deliver a seamless experience for each customer.</p>
 
                     <Button
+                        text={user ? 'Apply Now' : 'Sign in'}
                         onClick={handleModalToggle}
                         color='#fff'
                         className='w-[284px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]'
@@ -49,8 +52,11 @@ const Hero = () => {
                 </div>
                 <img src="/images/landing/hero.png" alt="hero" className='w-1/2 h-[100vh]' />
 
-                {/* {isModalVisible && <ApplyModal isVisible={isModalVisible} onClose={closeModal} />} */}
-                {isModalVisible && <SigninModal isVisible={isModalVisible} onClose={closeModal} />}
+                {
+                    user && isModalVisible ?
+                        <ApplyModal isVisible={isModalVisible} onClose={closeModal} /> :
+                        <SigninModal isVisible={isModalVisible} onClose={closeModal} />
+                }
             </div>
 
             {/* LoanCalculator positioned here */}
