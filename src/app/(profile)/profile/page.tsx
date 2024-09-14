@@ -12,6 +12,8 @@ const ProfilePage = () => {
   const [selectedMenu, setSelectedMenu] = useState('profile');
   const { user, loading } = useAuth();
 
+  console.log('user', user);
+
   if (loading) {
     return <div className='flex items-center justify-center w-full min-h-[100vh]'>Loading...</div>;
   }
@@ -27,7 +29,7 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className='flex flex-col w-full min-h-[100vh]'>
+    <div className='flex items-center justify-center flex-col w-full min-h-[100vh]'>
       {
         !loading && user ? (
           <div className='w-[1294px] mx-auto pt-12 pb-24'>
@@ -74,7 +76,9 @@ const ProfilePage = () => {
             </div>
           </div>
         ) : (
-          <h1>Not logged in</h1>
+          <div className='flex items-center justify-center'>
+            <h1>Not logged in</h1>
+          </div>
         )
       }
     </div>

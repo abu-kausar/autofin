@@ -1,4 +1,5 @@
-import React from 'react'
+import { useAuth } from '@/hooks/AuthProvider';
+import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 interface ContactFormProps {
@@ -10,6 +11,12 @@ interface ContactFormProps {
 }
 
 const ProfileForm = () => {
+    const { user } = useAuth();
+
+    const username = user?.displayName ? user.displayName.split(' ') : ['', ''];
+    const first_Name = username[0] || '';  // Default to an empty string if not available
+    const last_name = username[1] || '';   // Default to an empty string if not available
+
     const { register, formState: { errors }, handleSubmit } = useForm<ContactFormProps>();
 
     const onSubmit: SubmitHandler<ContactFormProps> = (data) => {
@@ -25,6 +32,7 @@ const ProfileForm = () => {
                         <input
                             {...register('firstName', { required: 'First name is required' })}
                             placeholder="First Name"
+                            defaultValue={first_Name} // Set default value
                             className='p-[10px_14px] border border-[#D0D5DD] rounded-[52px] outline-none focus:border-[#BB7AFE]'
                         />
                         {errors.firstName && <span className="text-red-500">{errors.firstName.message}</span>}
@@ -35,6 +43,7 @@ const ProfileForm = () => {
                         <input
                             {...register('lastName', { required: 'Last name is required' })}
                             placeholder="Last Name"
+                            defaultValue={last_name} // Set default value
                             className='p-[10px_14px] border border-[#D0D5DD] rounded-[52px] outline-none focus:border-[#BB7AFE]'
                         />
                         {errors.lastName && <span className="text-red-500">{errors.lastName.message}</span>}
@@ -46,6 +55,7 @@ const ProfileForm = () => {
                     <input
                         {...register('email', { required: 'Email is required' })}
                         placeholder="you@company.com"
+                        defaultValue={user?.email || ''}
                         className='p-[10px_14px] border border-[#D0D5DD] rounded-[52px] outline-none focus:border-[#BB7AFE]'
                     />
                     {errors.email && <span className="text-red-500">{errors.email.message}</span>}
@@ -63,7 +73,7 @@ const ProfileForm = () => {
                 </div>
             </form>
         </div>
-    )
+    );
 }
 
-export default ProfileForm
+export default ProfileForm;

@@ -3,7 +3,7 @@ import ModalWrapper from './ModalWrapper'
 import ApplyHeader from '../applyStates/ApplyHeader';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import InputField from '../applyStates/InputField';
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
 import auth from '../../firebase/firebaseConfig';
 
 const googleProvider = new GoogleAuthProvider();
@@ -16,6 +16,8 @@ interface ModalProps {
 console.log(auth);
 
 interface SigninProps {
+    firstname?: string;
+    lastname?: string;
     email: string;
     password: string;
 }
@@ -31,27 +33,72 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
         photo: '',
     });
 
+    // const onSubmit: SubmitHandler<SigninProps> = (data) => {
+    //     const { firstname, lastname, email, password } = data;
+    //     {
+    //         loginState ?
+    //             signInWithEmailAndPassword(auth, email, password)
+    //                 .then(result => {
+    //                     onClose();
+    //                     console.log(result.user);
+    //                 })
+    //                 .catch(err => {
+    //                     console.log(err);
+    //                 }) :
+    //             createUserWithEmailAndPassword(auth, email, password)
+    //                 .then(result => {
+    //                     onClose();
+    //                     setLoginState(false);
+    //                     console.log(result.user);
+    //                 })
+    //                 .catch(err => {
+    //                     console.log(err);
+    //                 })
+    //     }
+    // }
+
     const onSubmit: SubmitHandler<SigninProps> = (data) => {
-        const { email, password } = data;
-        {
-            loginState ?
-                signInWithEmailAndPassword(auth, email, password)
-                    .then(result => {
+        const { firstname, lastname, email, password } = data;
+    
+        if (loginState) {
+            // Sign in with email and password
+            signInWithEmailAndPassword(auth, email, password)
+                .then(result => {
+                    onClose();
+                    console.log(result.user);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        } else {
+            // Sign up with email and password
+            createUserWithEmailAndPassword(auth, email, password)
+                .then(result => {
+                    // Update the profile with firstname and lastname
+                    updateProfile(result.user, {
+                        displayName: `${firstname} ${lastname}`,
+                    }).then(() => {
+                        console.log('Profile updated successfully!');
                         onClose();
-                        console.log(result.user);
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    }) :
-                createUserWithEmailAndPassword(auth, email, password)
-                    .then(result => {
-                        onClose();
-                        setLoginState(false);
-                        console.log(result.user);
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    })
+    
+                        // Send user data to the server (optional)
+                        // You can send the user data to your backend here if needed.
+                        // For example:
+                        // const userData = { 
+                        //    uid: result.user.uid, 
+                        //    firstname, 
+                        //    lastname, 
+                        //    email 
+                        // };
+                        // sendUserDataToServer(userData);
+    
+                    }).catch(error => {
+                        console.log('Profile update error:', error);
+                    });
+                })
+                .catch(err => {
+                    console.log('Signup error:', err);
+                });
         }
     }
 
@@ -63,6 +110,7 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
                 // const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
+                onClose();
                 console.log(user);
 
                 // const userInfo = {
@@ -99,6 +147,29 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)} className='w-full flex flex-col gap-6 mb-2'>
+                    {
+                        !loginState &&
+                        <div className='flex gap-2'>
+                            <InputField<SigninProps>
+                                label="Firstname"
+                                name="firstname"
+                                placeholder="Enter your firstname"
+                                register={register}
+                                error={errors.firstname}
+                                required="Firstname is required"
+                            />
+
+                            <InputField<SigninProps>
+                                label="Lastname"
+                                name="lastname"
+                                placeholder="Enter your lastname"
+                                register={register}
+                                error={errors.lastname}
+                                required="Lastname is required"
+                            />
+                        </div>
+                    }
+
                     <InputField<SigninProps>
                         label="Email"
                         name="email"
@@ -123,8 +194,8 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
                     </button>
 
                     <div className='text-center text-sm'>
-                        { loginState ? 
-                            <p>Have not any account? <span onClick={() => setLoginState(false)} className='underline cursor-pointer text-[#9A57FE]'>Sign up</span></p> : 
+                        {loginState ?
+                            <p>Have not any account? <span onClick={() => setLoginState(false)} className='underline cursor-pointer text-[#9A57FE]'>Sign up</span></p> :
                             <p>Already have an account?<span onClick={() => setLoginState(true)} className='underline cursor-pointer text-[#9A57FE]'>Sign in</span></p>
                         }
                     </div>

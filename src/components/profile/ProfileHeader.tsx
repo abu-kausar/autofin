@@ -1,6 +1,9 @@
+import { useAuth } from '@/hooks/AuthProvider'
 import React from 'react'
 
 const ProfileHeader = () => {
+    const { user } = useAuth();
+
     return (
         <div className='w-full'>
             <div className="bg-gradient-to-r from-[#FFB5D6] via-[#FFADF5] to-[#FFCFCB] rounded-lg h-[240px]">
@@ -26,7 +29,7 @@ const ProfileHeader = () => {
                     </div>
 
                     <div className="ml-4 flex flex-col">
-                        <h2 className="text-2xl font-semibold text-gray-900 whitespace-nowrap">Joni Ahmed</h2>
+                        <h2 className="text-2xl font-semibold text-gray-900 whitespace-nowrap">{(user && user.displayName !== null) ? user.displayName : 'Jane Doe'}</h2>
                         <p className='text-base font-normal text-[#475467]'>Update your photo and personal details.</p>
                     </div>
 
