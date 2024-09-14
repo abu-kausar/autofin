@@ -1,3 +1,6 @@
+'use client'
+import ApplyModal from '@/components/modal/ApplyModal';
+import SigninModal from '@/components/modal/SigninModal';
 import Banner from '@/components/presentation/landing/Banner';
 import GetApproved from '@/components/presentation/landing/GetApproved';
 import Hero from '@/components/presentation/landing/Hero';
@@ -5,17 +8,35 @@ import HiddenFees from '@/components/presentation/landing/HiddenFees';
 import LoanCalculator from '@/components/presentation/landing/LoanCalculator';
 import Reviews from '@/components/presentation/landing/Reviews';
 import Services from '@/components/presentation/landing/Services';
-import React from 'react'
+import { useAuth } from '@/hooks/AuthProvider';
+import React, { useState } from 'react'
 
 const HomePage = () => {
+  const { user } = useAuth();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const handleModalToggle = () => {
+    setIsModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <div className='font-inter h-auto mx-auto'>
-      <Hero/>
-      <GetApproved/>
-      <Services/>
+      <Hero handleModalToggle={handleModalToggle} />
+      <GetApproved />
+      <Services handleModalToggle={handleModalToggle} isVisible={isModalVisible} onClose={closeModal} />
       <Reviews />
-      <HiddenFees/>
-      <Banner/>
+      <HiddenFees handleModalToggle={handleModalToggle}/>
+      <Banner handleModalToggle={handleModalToggle} />
+
+      {user && isModalVisible ? (
+        <ApplyModal isVisible={isModalVisible} onClose={closeModal} />
+      ) : (
+        <SigninModal isVisible={isModalVisible} onClose={closeModal} />
+      )}
     </div>
   )
 }

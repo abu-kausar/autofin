@@ -1,5 +1,7 @@
 import React from 'react'
 import Button from './Button'
+import { LandingPageProps } from '@/components/utils/interface'
+import { useAuth } from '@/hooks/AuthProvider'
 
 const fees = [
     {
@@ -16,7 +18,9 @@ const fees = [
     },
 ]
 
-const HiddenFees = () => {
+const HiddenFees: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
+    const { user } = useAuth();
+
     return (
         <div className='max-w-[1600px] bg-[url("/images/bg.png")] mx-auto py-[96px]'>
             <div className='mx-auto max-w-[1294px] font-inter flex items-center gap-5'>
@@ -39,6 +43,8 @@ const HiddenFees = () => {
                         }
                     </div>
                     <Button
+                        text={user ? 'Apply Now' : 'Sign in'}
+                        onClick={handleModalToggle}
                         color='#fff'
                         className='w-[284px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]'
                     />

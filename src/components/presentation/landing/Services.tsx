@@ -1,8 +1,12 @@
 import React from 'react'
 import Button from './Button'
 import { totalServices } from './utils/totalServices'
+import { useAuth } from '@/hooks/AuthProvider';
+import { LandingPageProps } from '@/components/utils/interface';
 
-const Services = () => {
+const Services: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
+    const { user } = useAuth();
+
     return (
         <div className='max-w-[1600px] bg-[url("/images/bg.png")] mx-auto py-[96px]'>
             <div className='mx-auto max-w-[1294px] flex items-center'>
@@ -26,6 +30,8 @@ const Services = () => {
                         }
                     </div>
                     <Button
+                        text={user ? 'Apply Now' : 'Sign in'}
+                        onClick={handleModalToggle}
                         color='#fff'
                         className='w-[284px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]'
                     />
