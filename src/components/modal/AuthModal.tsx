@@ -20,7 +20,7 @@ interface SigninProps {
     password: string;
 }
 
-const SigninModal = ({ isVisible, onClose }: ModalProps) => {
+const AuthModal = ({ isVisible, onClose }: ModalProps) => {
     const { register, formState: { errors }, handleSubmit } = useForm<SigninProps>();
 
     const [loginState, setLoginState] = useState(true);
@@ -204,4 +204,4 @@ const SigninModal = ({ isVisible, onClose }: ModalProps) => {
     )
 }
 
-export default SigninModal
+export default AuthModal;

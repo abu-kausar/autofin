@@ -1,6 +1,6 @@
 'use client'
 import ApplyModal from '@/components/modal/ApplyModal';
-import SigninModal from '@/components/modal/SigninModal';
+import AuthModal from '@/components/modal/AuthModal';
 import Banner from '@/components/presentation/landing/Banner';
 import GetApproved from '@/components/presentation/landing/GetApproved';
 import Hero from '@/components/presentation/landing/Hero';
@@ -35,7 +35,7 @@ const HomePage = () => {
       {user && isModalVisible ? (
         <ApplyModal isVisible={isModalVisible} onClose={closeModal} />
       ) : (
-        <SigninModal isVisible={isModalVisible} onClose={closeModal} />
+        <AuthModal isVisible={isModalVisible} onClose={closeModal} />
       )}
     </div>
   )

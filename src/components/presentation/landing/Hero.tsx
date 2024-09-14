@@ -1,9 +1,7 @@
 'use client'
-import React, { useState } from 'react'
-import Button from './Button'
-import ApplyModal from '@/components/modal/ApplyModal';
+import React, { useState } from 'react';
+import Button from './Button';
 import LoanCalculator from './LoanCalculator';
-import SigninModal from '@/components/modal/SigninModal';
 import { useAuth } from '@/hooks/AuthProvider';
 import { LandingPageProps } from '@/components/utils/interface';
 
