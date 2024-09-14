@@ -118,3 +118,14 @@ body,
   background-color: #9A57FE; /* Background color when checked */
   border-color: #9A57FE; /* Border color when checked */
 }
+
+.list-item-dot {
+  position: relative;
+  padding-left: 20px;
+}
+.list-item-dot::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: black; /* Change this color to match your design */
+}

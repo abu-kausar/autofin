@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Button from './Button'
 import ApplyModal from '@/components/modal/ApplyModal';
 import LoanCalculator from './LoanCalculator';
+import SigninModal from '@/components/modal/SigninModal';
 
 const Hero = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -48,7 +49,8 @@ const Hero = () => {
                 </div>
                 <img src="/images/landing/hero.png" alt="hero" className='w-1/2 h-[100vh]' />
 
-                {isModalVisible && <ApplyModal isVisible={isModalVisible} onClose={closeModal} />}
+                {/* {isModalVisible && <ApplyModal isVisible={isModalVisible} onClose={closeModal} />} */}
+                {isModalVisible && <SigninModal isVisible={isModalVisible} onClose={closeModal} />}
             </div>
 
             {/* LoanCalculator positioned here */}
