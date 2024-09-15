@@ -59,7 +59,7 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
 
     const onSubmit: SubmitHandler<SigninProps> = (data) => {
         const { firstname, lastname, email, password } = data;
-    
+
         if (loginState) {
             // Sign in with email and password
             signInWithEmailAndPassword(auth, email, password)
@@ -71,27 +71,47 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
                     console.log(err);
                 });
         } else {
-            // Sign up with email and password
+            // sign up user
             createUserWithEmailAndPassword(auth, email, password)
                 .then(result => {
+                    const user = {
+                        fullname: `${firstname} ${lastname}`,
+                        email: email
+                    };
+
+                    // Log the user data being sent to the backend
+                    console.log('User data being sent:', user);
+
+                    // Send user data to backend
+                    fetch('http://localhost:5000/api/auth/user', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(user)
+                    })
+                    .then(async res => {
+                        if (!res.ok) {
+                            const errorData = await res.json();
+                            console.error('Backend error:', errorData);
+                            throw new Error(errorData.message || 'Error creating user');
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        console.log('Success:', data);
+                    })
+                    .catch(error => {
+                        console.error('Error from fetch:', error);
+                    });
+                    
+
                     // Update the profile with firstname and lastname
                     updateProfile(result.user, {
-                        displayName: `${firstname} ${lastname}`,
+                        displayName: `${firstname} ${lastname}`
                     }).then(() => {
                         console.log('Profile updated successfully!');
                         onClose();
-    
-                        // Send user data to the server (optional)
-                        // You can send the user data to your backend here if needed.
-                        // For example:
-                        // const userData = { 
-                        //    uid: result.user.uid, 
-                        //    firstname, 
-                        //    lastname, 
-                        //    email 
-                        // };
-                        // sendUserDataToServer(userData);
-    
                     }).catch(error => {
                         console.log('Profile update error:', error);
                     });
