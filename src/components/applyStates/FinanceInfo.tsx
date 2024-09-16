@@ -8,24 +8,26 @@ import InputField from './InputField';
 interface FinanceProps {
     state: string;
     setState: Dispatch<SetStateAction<string>>;
+    loanData: any;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
 
 interface FinanceFormProps {
     status: string;
-    option: string;
+    duration: string;
     annualIncome: string;
     monthlyIncome: string;
 }
 
-const FinanceInfo = ({ state, setState }: FinanceProps) => {
+const FinanceInfo = ({ state, setState, loanData, handleChange }: FinanceProps) => {
     const { register, formState: { errors }, handleSubmit } = useForm<FinanceFormProps>();
 
-    const onSubmit: SubmitHandler<FinanceFormProps> = (data) => {
-        alert("Successfully submitted!");
+    const onSubmit: SubmitHandler<FinanceFormProps> = () => {
+        setState('cosign'); // Move to next step
     }
 
     return (
-        <div className='flex flex-col scroll-hidden-functional'>
+        <div className='flex flex-col scroll-hidden-functional p-6'>
             <ApplyHeader state={state} setState={setState} prev="contact" />
             <div className='max-h-[500px] overflow-y-auto flex flex-col gap-6 scroll-hidden-functional'>
                 <div className='py-5'>
@@ -38,7 +40,8 @@ const FinanceInfo = ({ state, setState }: FinanceProps) => {
                         <select
                             {...register("status", { required: "Employment status is required" })}
                             className='p-[10px_24px] h-[50px] outline-none focus:border-[#BB7AFE] font-normal text-bgBlack border border-[#D0D5DD] rounded-[54px] select-arrow-padding select-with-placeholder'
-                            defaultValue=""
+                            onChange={handleChange}
+                            name="status"
                         >
                             <option value="" disabled hidden>Select employment status</option>
                             <option value="full-time">I&apos;m employed (full time)</option>
@@ -55,9 +58,10 @@ const FinanceInfo = ({ state, setState }: FinanceProps) => {
                             <label className="flex items-center space-x-3">
                                 <input
                                     type="radio"
-                                    {...register("option", { required: "Please select an option" })}
+                                    {...register("duration", { required: "Please select an option" })}
                                     value="less than 1 year"
                                     className="h-4 w-4 custom-radio"
+                                    onChange={handleChange} 
                                 />
                                 <span className="text-gray-700">Less than 1 year</span>
                             </label>
@@ -65,9 +69,10 @@ const FinanceInfo = ({ state, setState }: FinanceProps) => {
                             <label className="flex items-center space-x-3 mt-2">
                                 <input
                                     type="radio"
-                                    {...register("option")}
+                                    {...register("duration")}
                                     value="1-2 years"
                                     className="h-4 w-4 custom-radio"
+                                    onChange={handleChange} 
                                 />
                                 <span className="text-gray-700">1-2 years</span>
                             </label>
@@ -75,9 +80,10 @@ const FinanceInfo = ({ state, setState }: FinanceProps) => {
                             <label className="flex items-center space-x-3 mt-2">
                                 <input
                                     type="radio"
-                                    {...register("option")}
+                                    {...register("duration")}
                                     value="2-5 years"
                                     className="h-4 w-4 custom-radio"
+                                    onChange={handleChange} 
                                 />
                                 <span className="text-gray-700">2-5 years</span>
                             </label>
@@ -85,13 +91,14 @@ const FinanceInfo = ({ state, setState }: FinanceProps) => {
                             <label className="flex items-center space-x-3 mt-2">
                                 <input
                                     type="radio"
-                                    {...register("option")}
+                                    {...register("duration")}
                                     value="5+ years"
                                     className="h-4 w-4 custom-radio"
+                                    onChange={handleChange} 
                                 />
                                 <span className="text-gray-700">5+ years</span>
                             </label>
-                            {errors.option && <span className="text-red-500">{errors.option.message}</span>}
+                            {errors.duration && <span className="text-red-500">{errors.duration.message}</span>}
                         </div>
                     </div>
 
@@ -106,6 +113,7 @@ const FinanceInfo = ({ state, setState }: FinanceProps) => {
                                 label="Annual Income"
                                 name="annualIncome"
                                 placeholder="Annual income"
+                                onChange={handleChange}
                                 register={register}
                                 error={errors.annualIncome}
                                 required="Annual income is required"
@@ -117,15 +125,25 @@ const FinanceInfo = ({ state, setState }: FinanceProps) => {
                                 label="Monthly Income"
                                 name="monthlyIncome"
                                 placeholder="Monthly income"
+                                onChange={handleChange}
                                 register={register}
                                 error={errors.monthlyIncome}
                                 required="Monthly income is required"
                             />
                         </div>
                     </div>
+                    <div
+                        className='pt-6 border-t border-[#EBEBEB]'
+                    >
+                        <button
+                            type='submit'
+                            className="w-full whitespace-nowrap p-[16px_28px] text-base font-semibold bg-purpleGradient rounded-[43px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]"
+                        >
+                            Next
+                        </button>
+                    </div>
                 </form>
             </div>
-            <ApplyFooter setState={setState} next="cosign" />
         </div>
     )
 }

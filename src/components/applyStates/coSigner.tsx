@@ -6,24 +6,23 @@ import ApplyHeader from './ApplyHeader';
 interface SetProps {
     state: string;
     setState: Dispatch<SetStateAction<string>>;
+    loanData: any;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
 
 interface SignerProps {
-    status: string;
-    option: string;
-    annualIncome: string;
-    monthlyIncome: string;
+    coSign: string
 }
 
-const CoSigner = ({ state, setState }: SetProps) => {
+const CoSigner = ({ state, setState, loanData, handleChange }: SetProps) => {
     const { register, formState: { errors }, handleSubmit } = useForm<SignerProps>();
 
-    const onSubmit: SubmitHandler<SignerProps> = (data) => {
-        alert("Successfully submitted!");
+    const onSubmit: SubmitHandler<SignerProps> = () => {
+        setState('terms'); // Move to next step
     }
 
     return (
-        <div className='flex flex-col scroll-hidden-functional'>
+        <div className='flex flex-col scroll-hidden-functional p-6'>
             <ApplyHeader state={state} setState={setState} prev="finance" />
             <div className='max-h-[500px] overflow-y-auto flex flex-col gap-6 scroll-hidden-functional'>
 
@@ -41,9 +40,10 @@ const CoSigner = ({ state, setState }: SetProps) => {
                                 <div>
                                     <input
                                         type="radio"
-                                        {...register("option", { required: "Please select an option" })}
-                                        value="less than 1 year"
+                                        {...register("coSign", { required: "Please select an option" })}
+                                        value="true"
                                         className="h-4 w-4 custom-radio"
+                                        onChange={handleChange}
                                     />
                                     <span className="ml-2 text-gray-700">Yes, Add a co-signer</span>
                                 </div>
@@ -79,20 +79,30 @@ const CoSigner = ({ state, setState }: SetProps) => {
                             <label className="flex items-center space-x-3 mt-3 border border-gray-200 rounded-[55px] py-3 px-5">
                                 <input
                                     type="radio"
-                                    {...register("option")}
-                                    value="1-2 years"
+                                    {...register("coSign")}
+                                    value="false"
                                     className="h-4 w-4 custom-radio"
+                                    onChange={handleChange}
                                 />
                                 <span className="text-gray-700">No, Skip for now</span>
                             </label>
-                            {errors.option && <span className="text-red-500">{errors.option.message}</span>}
+                            {errors.coSign && <span className="text-red-500">{errors.coSign.message}</span>}
                         </div>
+                    </div>
+                    <div
+                        className='pt-6 border-t border-[#EBEBEB]'
+                    >
+                        <button
+                            type='submit'
+                            className="w-full whitespace-nowrap p-[16px_28px] text-base font-semibold bg-purpleGradient rounded-[43px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]"
+                        >
+                            Next
+                        </button>
                     </div>
                 </form>
             </div>
-            <ApplyFooter setState={setState} next="terms" />
         </div>
     )
 }
 
-export default CoSigner
+export default CoSigner;

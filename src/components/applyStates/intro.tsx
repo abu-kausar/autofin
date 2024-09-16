@@ -8,7 +8,7 @@ interface IntroProps {
 const IntroState = ({ setState }: IntroProps) => {
 
   return (
-    <div className="flex flex-col items-center justify-center gap-7 w-full">
+    <div className="flex flex-col items-center justify-center gap-7 w-full p-6">
       <div className="text-center w-full">
         <img
           src="/images/qualifyList.svg"

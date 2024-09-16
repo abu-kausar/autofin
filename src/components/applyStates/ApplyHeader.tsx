@@ -12,7 +12,7 @@ const ApplyHeader = ({ state, setState, prev }: Props) => {
     return (
         <div 
             onClick={() => setState && prev && setState(prev)} // Check if setState and prev are defined
-            className='mb-3 border-b border-[#EBEBEB]'
+            className='border-b border-[#EBEBEB]'
         >
             <div className="flex mb-5">
                 <img src="/images/chevron-left.svg" alt="left" className="cursor-pointer" />

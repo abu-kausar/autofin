@@ -83,28 +83,28 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
                     console.log('User data being sent:', user);
 
                     // Send user data to backend
-                    fetch('http://localhost:5000/api/auth/user', {
+                    fetch('https://autofin-backend.vercel.app/api/auth/user', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify(user)
                     })
-                    .then(async res => {
-                        if (!res.ok) {
-                            const errorData = await res.json();
-                            console.error('Backend error:', errorData);
-                            throw new Error(errorData.message || 'Error creating user');
-                        }
-                        return res.json();
-                    })
-                    .then(data => {
-                        console.log('Success:', data);
-                    })
-                    .catch(error => {
-                        console.error('Error from fetch:', error);
-                    });
-                    
+                        .then(async res => {
+                            if (!res.ok) {
+                                const errorData = await res.json();
+                                console.error('Backend error:', errorData);
+                                throw new Error(errorData.message || 'Error creating user');
+                            }
+                            return res.json();
+                        })
+                        .then(data => {
+                            console.log('Success:', data);
+                        })
+                        .catch(error => {
+                            console.error('Error from fetch:', error);
+                        });
+
 
                     // Update the profile with firstname and lastname
                     updateProfile(result.user, {
@@ -160,8 +160,11 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
 
     return (
         <ModalWrapper onClose={onClose}>
-            <ApplyHeader />
-            <div className='max-h-[500px] overflow-y-auto flex flex-col gap-6 scroll-hidden-functional'>
+            <div className='px-6 pt-6'>
+                <ApplyHeader />
+            </div>
+
+            <div className='max-h-[500px] overflow-y-auto flex flex-col gap-6 scroll-hidden-functional p-6'>
                 <div className=''>
                     <h1 className='text-lg font-semibold text-[#12141D]'>{loginState ? 'Sign in' : 'Sign up'}</h1>
                 </div>

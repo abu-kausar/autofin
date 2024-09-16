@@ -6,21 +6,23 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 interface SetProps {
     state: string;
     setState: Dispatch<SetStateAction<string>>;
+    loanData: any;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
 
 interface AgreementProps {
-    agree: boolean;
+    terms: string;
 }
 
-const Terms = ({ state, setState }: SetProps) => {
+const Terms = ({ state, setState, loanData, handleChange }: SetProps) => {
     const { register, formState: { errors }, handleSubmit } = useForm<AgreementProps>();
 
     const onSubmit: SubmitHandler<AgreementProps> = (data) => {
-        alert("Successfully submitted!");
+        setState('ssn');
     }
 
     return (
-        <div className='flex flex-col scroll-hidden-functional'>
+        <div className='flex flex-col scroll-hidden-functional p-6'>
             <ApplyHeader state={state} setState={setState} prev="cosign" />
             <div className='max-h-[500px] overflow-y-auto flex flex-col gap-6 scroll-hidden-functional'>
                 <div className='py-4'>
@@ -41,21 +43,31 @@ const Terms = ({ state, setState }: SetProps) => {
                     <div className='flex items-center'>
                         <input
                             type='checkbox'
-                            {...register('agree', { required: "You must agree to the terms and conditions." })}
+                            {...register('terms', { required: "You must agree to the terms and conditions." })}
                             className='custom-checkbox mr-2'
+                            onChange={handleChange}
                         />
                         <label className='text-base font-medium text-[#12141D]'>
                             I agree to the terms and conditions above.
                         </label>
                     </div>
-                    {errors.agree && (
+                    {errors.terms && (
                         <p className='text-red-500 text-sm'>
-                            {errors.agree.message}
+                            {errors.terms.message}
                         </p>
                     )}
+                    <div
+                        className='pt-6 border-t border-[#EBEBEB]'
+                    >
+                        <button
+                            type='submit'
+                            className="w-full whitespace-nowrap p-[16px_28px] text-base font-semibold bg-purpleGradient rounded-[43px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]"
+                        >
+                            Next
+                        </button>
+                    </div>
                 </form>
             </div>
-            <ApplyFooter setState={setState} next="ssn" />
         </div>
     )
 }

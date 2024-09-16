@@ -8,72 +8,84 @@ import { Dispatch, SetStateAction } from "react";
 interface PersonalProps {
     state: string;
     setState: Dispatch<SetStateAction<string>>;
+    loanData: any;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface PersonalFormProps {
-    firstName: string;
-    lastName: string;
+    firstname: string;
+    lastname: string;
     suffix: string;
-    date: string;
+    dob: string;
 }
 
-const PersonalInfo = ({ state, setState } : PersonalProps) => {
+const PersonalInfo = ({ state, setState, loanData, handleChange }: PersonalProps) => {
     const { register, formState: { errors }, handleSubmit } = useForm<PersonalFormProps>();
 
-    const onSubmit: SubmitHandler<PersonalFormProps> = (data) => {
-        alert("Successfully submitted!");
+    const onSubmit: SubmitHandler<PersonalFormProps> = () => {
+        setState('contact');
     }
 
     return (
-        <div className='flex flex-col scroll-hidden-functional'>
-            <ApplyHeader state={state} setState={setState} prev="pre"/>
-            <div className='max-h-[500px] overflow-y-auto flex flex-col gap-6 scroll-hidden-functional'>
+        <div className='flex flex-col p-6'>
+            <ApplyHeader state={state} setState={setState} prev="pre" />
+            <div className='h-[500px] overflow-hidden flex flex-col gap-6 scroll-hidden-functional'>
                 <div className='py-5'>
-                    <h1 className='text-lg font-semibold text-[#12141D]'>Personal Information</h1>
-                    <p className='text-sm font-normal text-[#707277]'>This information helps verify your identity and is never shared without your consent</p>
+                    <h1 className='text-lg font-semibold'>Personal Information</h1>
+                    <p className='text-sm'>This information helps verify your identity.</p>
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)} className='w-full flex flex-col gap-6 mb-5'>
                     <InputField<PersonalFormProps>
                         label="First name"
-                        name="firstName"
+                        name="firstname" /* Corrected name */
                         placeholder="First Name"
+                        onChange={handleChange}
                         register={register}
-                        error={errors.firstName}
+                        error={errors.firstname}
                         required="First name is required"
                     />
-
                     <InputField<PersonalFormProps>
                         label="Last name"
-                        name="lastName"
+                        name="lastname" /* Corrected name */
                         placeholder="Last Name"
+                        onChange={handleChange}
                         register={register}
-                        error={errors.lastName}
+                        error={errors.lastname}
                         required="Last name is required"
                     />
-
                     <InputField<PersonalFormProps>
                         label="Suffix (optional)"
                         name="suffix"
-                        type="email"
-                        placeholder="Email"
+                        placeholder="Suffix"
+                        onChange={handleChange}
                         register={register}
                         error={errors.suffix}
                         required="Suffix is required"
                     />
-
                     <InputField<PersonalFormProps>
                         label="Date of Birth"
-                        name="date"
+                        name="dob"
                         type="date"
-                        placeholder="DD/MM/YYYY"
+                        placeholder="Date of Birth"
+                        onChange={handleChange}
                         register={register}
-                        error={errors.date}
-                        required="Date is required"
+                        error={errors.dob}
+                        required="Date of Birth is required"
                     />
+
+                    <div
+                        className='pt-6 border-t border-[#EBEBEB]'
+                    >
+                        <button
+                            type='submit'
+                            className="w-full whitespace-nowrap p-[16px_28px] text-base font-semibold bg-purpleGradient rounded-[43px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]"
+                        >
+                            Next
+                        </button>
+                    </div>
                 </form>
             </div>
-            <ApplyFooter setState={setState} next="contact"/>
         </div>
     );
 }
