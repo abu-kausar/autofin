@@ -30,7 +30,7 @@ const ApplyModal = ({ isVisible, onClose }: ModalProps) => {
     address: "",
     building: "",
     city: "",
-    state: "full-time",
+    state: "",
     zip: "",
     phone: "",
     status: "",
@@ -54,6 +54,7 @@ const ApplyModal = ({ isVisible, onClose }: ModalProps) => {
     if (isVisible && user?.email !== undefined) {
       setLoanData((prevLoanData) => ({
         ...prevLoanData,
+        status: "full-time",
         email: user.email ?? "",  // Fallback to an empty string if email is null
       }));
     }

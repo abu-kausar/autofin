@@ -3,16 +3,70 @@ import Header from '@/components/presentation/Header';
 import MyLoanComponent from '@/components/profile/MyLoanComponent';
 import PasswordComponent from '@/components/profile/PasswordComponent';
 import ProfileComponent from '@/components/profile/ProfileComponent';
+import { baseUrl } from '@/components/utils/urls';
 import { useAuth } from '@/hooks/AuthProvider';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const profileMenus = ["profile", "my loans", "password"];
 
+type PersonData = {
+  address: string;
+  annualIncome: string;
+  building?: string;
+  city: string;
+  coSign: string;
+  createdOn?: string;
+  dob: string;
+  duration: string;
+  email: string;
+  firstname: string;
+  lastname: string;
+  monthlyIncome: string;
+  phone: string;
+  ssn: string;
+  status: string;
+  state: string;
+  suffix?: string;
+  terms: string;
+  zip: string;
+  _id: string;
+};
+
 const ProfilePage = () => {
   const [selectedMenu, setSelectedMenu] = useState('profile');
+  const [loans, setLoans] = useState<PersonData[] | undefined>(undefined); // Set initial state to undefined
   const { user, loading } = useAuth();
 
-  console.log('user', user);
+  async function getLoans() {
+    let fetchUrl = `${baseUrl}/userloans`;
+
+    if (user?.email) {
+      fetchUrl += `?email=${encodeURIComponent(user.email)}`; // Append email query parameter to the URL
+    }
+
+    try {
+      const res = await fetch(fetchUrl);
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await res.json();
+      setLoans(data?.loans ?? []); // Ensure that loans is always an array, even if empty
+      
+    } catch (error) {
+      console.error(error);
+      setLoans([]); // Handle the case where there's an error
+    }
+  }
+
+  useEffect(() => {
+    if (user) {
+      getLoans();
+    }
+  }, [user]);
+  
+  useEffect(() => {
+    console.log("loans from useState", loans);
+  }, [loans]);
 
   if (loading) {
     return <div className='flex items-center justify-center w-full min-h-[100vh]'>Loading...</div>;
@@ -22,7 +76,7 @@ const ProfilePage = () => {
     if (selectedMenu === 'profile') {
       return <ProfileComponent />;
     } else if (selectedMenu === 'my loans') {
-      return <MyLoanComponent />;
+      return <MyLoanComponent loanData={loans}/>; // Pass loans to MyLoanComponent
     } else {
       return <PasswordComponent />;
     }

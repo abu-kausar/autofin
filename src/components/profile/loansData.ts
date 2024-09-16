@@ -1,4 +1,4 @@
-export const loanData = [
+export const loanDatas = [
     {
         name: 'John Doe',
         email: 'support@autofincredit.com',

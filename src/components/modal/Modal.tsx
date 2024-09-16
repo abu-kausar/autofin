@@ -4,63 +4,109 @@ interface ModalProps {
     isVisible: boolean;
     onClose: () => void;
     data: {
-        name: string;
+        address: string;
+        annualIncome: string;
+        building?: string;
+        city: string;
+        coSign: string;
+        createdOn?: string;
+        dob: string;
+        duration: string;
         email: string;
+        firstname: string;
+        lastname: string;
+        monthlyIncome: string;
+        phone: string;
+        ssn: string;
         status: string;
-        date: string;
-        personalInfo: { firstName: string; lastName: string; suffix: string; dob: string };
-        contactInfo: { employeeStatus: string; currentEmployer: string; address: string; phone: string };
-        financialInfo: { annualIncome: string; monthlyIncome: string };
-        otherInfo: { coSigner: string; ssn: string };
+        state: string;
+        suffix?: string;
+        terms: string;
+        zip: string;
+        _id: string;
     };
 }
 
 const Modal = ({ isVisible, onClose, data }: ModalProps) => {
     if (!isVisible) return null;
 
-    const renderSection = (title: string, fields: { [key: string]: string }) => (
-        <div className='mb-4'>
-            <div className="w-full p-[12px_24px] bg-gray-50 rounded-[32px]">
-                <h3 className='text-xs font-medium text-gray-600'>{title}</h3>
-            </div>
-
-            <div className='text-sm font-medium p-[12px_24px]'>
-                {Object.entries(fields).map(([label, value]) => (
-                    <p key={label} className='my-1'>
-                        <span className="text-[#475467]">{label} :</span> <span className="text-[#12141D]">{value}</span>
-                    </p>
-                ))}
-            </div>
-        </div>
-    );
-
     return (
         <ModalWrapper onClose={onClose}>
-            <h2 className='text-base font-medium text-gray-600 mb-4 pl-6'>Loan Information</h2>
+            <div className="p-6 overflow-y-auto scroll-hidden-functional">
+                <h2 className='text-base font-medium text-gray-600 mb-4 pl-6'>Loan Information</h2>
 
-            {renderSection('Personal Information', {
-                'First Name': data.personalInfo.firstName,
-                'Last Name': data.personalInfo.lastName,
-                Suffix: data.personalInfo.suffix,
-                'Date of Birth': data.personalInfo.dob,
-            })}
+                <div className='mb-4'>
+                    <div className="w-full p-[12px_24px] bg-gray-50 rounded-[32px]">
+                        <h3 className='text-xs font-medium text-gray-600'>Personal Information</h3>
+                    </div>
 
-            {renderSection('Contact Information', {
-                'Employee Status': data.contactInfo.employeeStatus,
-                'Current Employer': data.contactInfo.currentEmployer,
-                Address: data.contactInfo.address,
-                Phone: data.contactInfo.phone,
-            })}
+                    <div className='text-sm font-medium p-[12px_24px]'>
+                        <p className='my-1'>
+                            <span className="text-[#475467]">First Name :</span> <span className="text-[#12141D]">{data?.firstname}</span>
+                        </p>
+                        <p className='my-1'>
+                            <span className="text-[#475467]">Last Name :</span> <span className="text-[#12141D]">{data?.lastname}</span>
+                        </p>
+                        <p className='my-1'>
+                            <span className="text-[#475467]">Suffix :</span> <span className="text-[#12141D]">{data?.suffix}</span>
+                        </p>
+                        <p className='my-1'>
+                            <span className="text-[#475467]">Date of Birth :</span> <span className="text-[#12141D]">{data?.dob}</span>
+                        </p>
+                    </div>
+                </div>
 
-            {renderSection('Financial Information', {
-                'Annual Income': data.financialInfo.annualIncome,
-                'Monthly Income': data.financialInfo.monthlyIncome,
-            })}
+                <div className='mb-4'>
+                    <div className="w-full p-[12px_24px] bg-gray-50 rounded-[32px]">
+                        <h3 className='text-xs font-medium text-gray-600'>Contact Information</h3>
+                    </div>
 
-            {renderSection('Other Information', {
-                'Co-signer': data.otherInfo.coSigner,
-                SSN: data.otherInfo.ssn,
-            })}
+                    <div className='text-sm font-medium p-[12px_24px]'>
+                        <p className='my-1'>
+                            <span className="text-[#475467]">Employee Status :</span> <span className="text-[#12141D]">{data?.status}</span>
+                        </p>
+                        <p className='my-1'>
+                            <span className="text-[#475467]">Current Employer :</span> <span className="text-[#12141D]">{data?.duration}</span>
+                        </p>
+                        <p className='my-1'>
+                            <span className="text-[#475467]">Address :</span> <span className="text-[#12141D]">{data?.building}, {data?.address}, {data?.city}, {data?.state}-{data?.zip}</span>
+                        </p>
+                        <p className='my-1'>
+                            <span className="text-[#475467]">Phone :</span> <span className="text-[#12141D]">{data?.phone}</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div className='mb-4'>
+                    <div className="w-full p-[12px_24px] bg-gray-50 rounded-[32px]">
+                        <h3 className='text-xs font-medium text-gray-600'>Financial Information</h3>
+                    </div>
+
+                    <div className='text-sm font-medium p-[12px_24px]'>
+                        <p className='my-1'>
+                            <span className="text-[#475467]">Annual Income :</span> <span className="text-[#12141D]">{data?.annualIncome}</span>
+                        </p>
+                        <p className='my-1'>
+                            <span className="text-[#475467]">Monthly Income :</span> <span className="text-[#12141D]">{data?.monthlyIncome}</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div className='mb-4'>
+                    <div className="w-full p-[12px_24px] bg-gray-50 rounded-[32px]">
+                        <h3 className='text-xs font-medium text-gray-600'>Other Information</h3>
+                    </div>
+
+                    <div className='text-sm font-medium p-[12px_24px]'>
+                        <p className='my-1'>
+                            <span className="text-[#475467]">Co-signer :</span> <span className="text-[#12141D]">{data?.coSign}</span>
+                        </p>
+                        <p className='my-1'>
+                            <span className="text-[#475467]">SSN :</span> <span className="text-[#12141D]">{data?.ssn}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </ModalWrapper>
     );
 };

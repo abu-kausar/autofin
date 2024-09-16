@@ -5,6 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import InputField from '../applyStates/InputField';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
 import auth from '../../firebase/firebaseConfig';
+import { baseUrl } from '../utils/urls';
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -12,8 +13,6 @@ interface ModalProps {
     isVisible: boolean;
     onClose: () => void;
 }
-
-console.log(auth);
 
 interface SigninProps {
     firstname?: string;
@@ -32,30 +31,6 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
         email: '',
         photo: '',
     });
-
-    // const onSubmit: SubmitHandler<SigninProps> = (data) => {
-    //     const { firstname, lastname, email, password } = data;
-    //     {
-    //         loginState ?
-    //             signInWithEmailAndPassword(auth, email, password)
-    //                 .then(result => {
-    //                     onClose();
-    //                     console.log(result.user);
-    //                 })
-    //                 .catch(err => {
-    //                     console.log(err);
-    //                 }) :
-    //             createUserWithEmailAndPassword(auth, email, password)
-    //                 .then(result => {
-    //                     onClose();
-    //                     setLoginState(false);
-    //                     console.log(result.user);
-    //                 })
-    //                 .catch(err => {
-    //                     console.log(err);
-    //                 })
-    //     }
-    // }
 
     const onSubmit: SubmitHandler<SigninProps> = (data) => {
         const { firstname, lastname, email, password } = data;
@@ -83,7 +58,7 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
                     console.log('User data being sent:', user);
 
                     // Send user data to backend
-                    fetch('https://autofin-backend.vercel.app/api/auth/user', {
+                    fetch(`${baseUrl}/auth/user`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'

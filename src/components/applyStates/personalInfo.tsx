@@ -61,7 +61,6 @@ const PersonalInfo = ({ state, setState, loanData, handleChange }: PersonalProps
                         onChange={handleChange}
                         register={register}
                         error={errors.suffix}
-                        required="Suffix is required"
                     />
                     <InputField<PersonalFormProps>
                         label="Date of Birth"

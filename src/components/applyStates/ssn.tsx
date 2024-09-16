@@ -3,6 +3,7 @@ import ApplyFooter from './Footer'
 import ApplyHeader from './ApplyHeader'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import InputField from './InputField';
+import { baseUrl } from '../utils/urls';
 
 interface SetProps {
     state: string;
@@ -20,7 +21,7 @@ const SSN = ({ state, setState, loanData, handleChange }: SetProps) => {
 
     const onSubmit: SubmitHandler<SSNProps> = (data) => {
         try {
-            fetch('https://autofin-backend.vercel.app/api/loan', {
+            fetch(`${baseUrl}/loan`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
