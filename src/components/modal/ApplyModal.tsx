@@ -30,7 +30,7 @@ const ApplyModal = ({ isVisible, onClose }: ModalProps) => {
     address: "",
     building: "",
     city: "",
-    state: "",
+    state: "full-time",
     zip: "",
     phone: "",
     status: "",
