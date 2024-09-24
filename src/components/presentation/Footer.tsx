@@ -50,7 +50,9 @@ const Footer = () => {
               <h1 className='text-[14px] text-[#D0D5DD] font-semibold float-left'>CONTACT</h1>
               <div className='flex flex-col gap-3'>
                 <div className='flex gap-2'>
-                  <LocationIcon />
+                  <div className='h-6 w-6'>
+                    <LocationIcon />
+                  </div>
                   <p className='text-base font-semibold text-[#EAECF0]'>1650 Market Street Ste 300 Philadelphia, PA 19103</p>
                 </div>
 

@@ -11,7 +11,7 @@ const Reviews = () => {
         <div className='mx-auto max-w-[1294px] font-inter my-[96px]'>
             <div className='flex flex-col gap-[50px]'>
                 <div className='flex flex-col gap-[10px]'>
-                    <p className='text-lg font-normal text-bgBlack opacity-90'>REVIEWS</p>
+                    <p className='text-lg font-normal text-[#7D7F84] opacity-90'>REVIEWS</p>
                     <div className='flex justify-between items-center'>
                         <h1 className='text-[48px] font-bold text-bgBlack leading-[54px]'>What Our Client Saying</h1>
                         
@@ -35,10 +35,10 @@ const Reviews = () => {
                     </div>
                 </div>
 
-                <div className='flex gap-2'>
+                <div className='grid grid-cols-3 gap-2'>
                     {
                         totalReviews.map((review) => (
-                            <div key={review.id} className='p-7 flex flex-col gap-7 border border-[#E9D7FE] hover:border-[#9A57FE] hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] rounded-[10px]'>
+                            <div key={review.id} className='p-7 flex flex-col gap-7 bg-[#FAF9FF] border border-transparent hover:border-[#9A57FE] hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] rounded-[10px]'>
                                 <img src="/images/landing/quote.svg" alt="" className='w-10 h-7' />
 
                                 <h2 className='text-lg font-semibold text-bgBlack'>{review.description}</h2>

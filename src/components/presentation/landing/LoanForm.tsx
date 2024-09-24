@@ -75,17 +75,19 @@ const LoanForm = ({ setIsCalculated = () => { }, setLoanDetails = () => { } }: L
               defaultValue=""
             >
               <option value="" disabled hidden>Select year</option>
-              <option value="3">3 years</option>
-              <option value="4">4 years</option>
-              <option value="5">5 years</option>
-              <option value="6">6 years</option>
+              <option value="3">36 months</option>
+              <option value="4">48 months</option>
+              <option value="5">60 months</option>
+              <option value="6">72 months</option>
             </select>
           </div>
         </div>
 
-        <button type="submit" className='mt-[50px] text-xl font-semibold text-[#9A57FE] hover:text-white hover:bg-[#BB7AFE] hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] border-2 border-[#BB7AFE] rounded-[43px] w-full py-4'>
-          Calculate Payment
-        </button>
+        <div className='mt-[50px] rounded-[43px] p-[2px] bg-purpleGradient'>
+          <button type="submit" className='h-[52px] text-xl font-semibold text-[#9A57FE] hover:text-white bg-white hover:bg-purpleGradient hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] rounded-[43px] w-full '>
+            Calculate Payment
+          </button>
+        </div>
       </form>
     </div>
   );

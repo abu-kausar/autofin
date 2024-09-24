@@ -14,23 +14,25 @@ const Header = () => {
       ? "text-[#BB7AFE] border-b-2 border-[#BB7AFE]" : "text-primaryTextColor";
 
   return (
-    <div className='2xl:w-[1536px] mx-auto font-inter border-b border-[#05010D1A]'>
-      <div className='flex justify-between items-center px-8 py-3'>
-        <div className='flex justify-start'>
-          <Link href='/'>
-            <Image src="/images/landing/logo.svg" alt='logo' width={190} height={46} />
-          </Link>
-        </div>
-        
-        <div className='flex items-center gap-8'>
-          {
-            navRoutes.map((route, idx) => (
-              <Link href={route.url} key={idx} className={`text-lg 2xl:text-2xl ${isActive(route.url)}`}>{route.title}</Link>
-            ))
-          }
-        </div>
+    <div className='border-b border-[#05010D1A]'>
+      <div className='2xl:w-[1536px] mx-auto font-inter '>
+        <div className='flex justify-between items-center px-8 py-3'>
+          <div className='flex justify-start'>
+            <Link href='/'>
+              <Image src="/images/landing/logo.svg" alt='logo' width={190} height={46} />
+            </Link>
+          </div>
 
-        <Dropdown/>
+          <div className='flex items-center gap-8'>
+            {
+              navRoutes.map((route, idx) => (
+                <Link href={route.url} key={idx} className={`text-base font-semibold ${isActive(route.url)}`}>{route.title}</Link>
+              ))
+            }
+          </div>
+
+          <Dropdown />
+        </div>
       </div>
     </div>
   )

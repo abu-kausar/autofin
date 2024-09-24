@@ -22,14 +22,14 @@ const HiddenFees: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
     const { user } = useAuth();
 
     return (
-        <div className='max-w-[1600px] bg-[url("/images/bg.png")] mx-auto py-[96px]'>
+        <div className='bg-[url("/images/bg.png")] mx-auto py-[96px]'>
             <div className='mx-auto max-w-[1294px] font-inter flex items-center gap-5'>
                 <div className='w-1/2 flex items-center justify-center'>
                     <img src="/images/landing/cars.png" alt="cars" width={550} />
                 </div>
 
                 <div className='w-1/2 flex flex-col gap-5'>
-                    <p className='text-lg font-normal text-bgBlack opacity-90 uppercase'>No hidden fees</p>
+                    <p className='text-lg font-normal text-[#7D7F84] opacity-90 uppercase'>No hidden fees</p>
                     <h1 className='text-[48px] font-bold text-bgBlack leading-[54px]'>Low Interest Auto Loans at AutoFin Credit</h1>
                     <p className='text-base font-normal text-bgBlack'>Our low-interest auto loans make vehicle ownership more accessible and affordable, empowering you to upgrade your ride without the financial burden.</p>
                     <div className='flex flex-col gap-4 mt-[10px] mb-5'>

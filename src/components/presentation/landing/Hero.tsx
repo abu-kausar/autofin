@@ -9,10 +9,10 @@ const Hero: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
     const { user } = useAuth();
 
     return (
-        <div className='relative max-w-[1600px] bg-[#F3F2FD] mx-auto pt-[96px] pb-[200px] mb-[380px]'>
+        <div className='relative bg-[#F3F2FD] mx-auto pt-[12px] pb-[200px] mb-[330px]'>
             <div className='mx-auto max-w-[1294px] flex items-center mt-[60px]'>
                 <div className='w-1/2 flex flex-col gap-5'>
-                    <h1 className='text-[72px] font-semibold leading-[75px]'>
+                    <h1 className='text-[60px] 2xl:text-[72px] font-semibold leading-[70px] 2xl:leading-[81px]'>
                         Affordable Auto Financing Made Simple
                     </h1>
 
@@ -27,7 +27,7 @@ const Hero: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
                         className='w-[284px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]'
                     />
 
-                    <div className='flex gap-5 mt-5'>
+                    <div className='flex gap-5 pt-6 mt-5 border-t border-[#00000026]'>
                         <div className='w-1/2 flex gap-5 items-center border-r border-bgBlack border-opacity-[0.08]'>
                             <img src="/images/landing/happyCustomers.png" alt="happy-customer" />
                             <div className='flex flex-col'>
