@@ -5,6 +5,7 @@ import React from 'react';
 import { navRoutes } from './landing/utils/landingRoutes';
 import { usePathname } from 'next/navigation';
 import Dropdown from './Dropdown';
+import Sidebar from './Sidebar';
 
 const Header = () => {
   const pathname = usePathname();
@@ -31,7 +32,8 @@ const Header = () => {
             }
           </div>
 
-          <Dropdown />
+          {/* <Dropdown /> */}
+          <Sidebar />
         </div>
       </div>
     </div>

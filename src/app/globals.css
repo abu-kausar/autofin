@@ -146,3 +146,7 @@ body,
   border-radius: 10px;
   box-shadow: 38px 35px 30.5px 0px rgba(0, 0, 0, 0.05);
 }
+
+.custom-linear-bg {
+  background: linear-gradient(180deg, #803DF8 7.68%, #FFF 33.41%);
+}
