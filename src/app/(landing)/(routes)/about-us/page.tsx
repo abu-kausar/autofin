@@ -4,7 +4,7 @@ import React from 'react'
 
 const AboutUs = () => {
   return (
-    <div className='flex flex-col pt-[56px] px-12 mx-auto max-w-[1294px]'>
+    <div className='flex flex-col pt-[168px] px-12 mx-auto max-w-[1294px]'>
       <div className='w-[768px] mx-auto'>
         <p className='text-base font-semibold text-[#7F56D9] text-center'>About us</p>
         <h1 className='text-[48px] font-semibold text-gray-900 text-center'>Our mission is to increase the GDP of your startup</h1>

@@ -11,23 +11,23 @@ export const navRoutes = [
     },
     {
         id: 3,
-        title: 'How it Works',
-        url: '#how-it-works',
+        title: 'Get Approved',
+        url: '#get-approved',
     },
     {
         id: 4,
-        title: 'Reviews',
-        url: '#reviews',
-    },
-    {
-        id: 5,
         title: 'Services',
         url: '#services',
     },
     {
+        id: 5,
+        title: 'Reviews',
+        url: '#reviews',
+    },
+    {
         id: 6,
-        title: 'FAQ',
-        url: '/faq',
+        title: 'Fees',
+        url: '#fees',
     },
 ];
 
@@ -42,28 +42,28 @@ export const footerLinks = [
             },
             { 
                 id: 2,
-                title: "How it works", 
-                url: "/how-it-works" 
+                title: "Get Approved", 
+                url: "/" 
             },
             { 
                 id: 3,
                 title: "Loan Calculator", 
-                url: "/loan-calculator" 
+                url: "/" 
             },
             { 
                 id: 4,
                 title: "Services", 
-                url: "/services"  
+                url: "/"  
             },
             { 
                 id: 5,
                 title: "Reviews", 
-                url: "/reviews"   
+                url: "/"   
             },
             { 
                 id: 6,
                 title: "Log in", 
-                url: "/log-in"   
+                url: "/"   
             },
         ],
     },

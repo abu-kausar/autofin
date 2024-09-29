@@ -7,7 +7,7 @@ interface AgreementProps {
 
 const AgreementTemplate = ({ name, data } : AgreementProps) => {
     return (
-        <div className='flex flex-col py-[56px] px-12'>
+        <div className='flex flex-col pt-[168px] py-[96px] px-12'>
             <div className=''>
                 <p className='text-base font-semibold text-[#7F56D9] text-center'>{data?.details}</p>
                 <h1 className='text-[48px] font-semibold text-gray-900 text-center'>{name}</h1>

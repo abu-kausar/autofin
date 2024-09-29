@@ -13,7 +13,7 @@ const Reviews = () => {
                 <div className='flex flex-col gap-[10px]'>
                     <p className='text-lg font-normal text-[#7D7F84] opacity-90'>REVIEWS</p>
                     <div className='flex justify-between items-center'>
-                        <h1 className='text-[48px] font-bold text-bgBlack leading-[54px]'>What Our Client Saying</h1>
+                        <h1 className='text-[32px] 2xl:text-[48px] font-bold text-bgBlack leading-[54px]'>What Our Client Saying</h1>
                         
                         <div className='flex gap-3'>
                             <span 
@@ -38,10 +38,10 @@ const Reviews = () => {
                 <div className='grid grid-cols-3 gap-2'>
                     {
                         totalReviews.map((review) => (
-                            <div key={review.id} className='p-7 flex flex-col gap-7 bg-[#FAF9FF] border border-transparent hover:border-[#9A57FE] hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] rounded-[10px]'>
+                            <div key={review.id} className='p-7 flex flex-col gap-7 bg-[#FAF9FF] border border-transparent hover:border-[#9A57FE] hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] rounded-[10px] hover:transform hover:translate-y-[-8px] transition-all duration-300 ease-in-out'>
                                 <img src="/images/landing/quote.svg" alt="" className='w-10 h-7' />
 
-                                <h2 className='text-lg font-semibold text-bgBlack'>{review.description}</h2>
+                                <h2 className='text-base 2xl:text-lg font-medium text-bgBlack'>{review.description}</h2>
 
                                 <div className='flex gap-3 items-center'>
                                     <span className='h-12 w-12 rounded-[100px] flex items-center justify-center'>

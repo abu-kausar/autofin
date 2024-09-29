@@ -13,7 +13,7 @@ const Blog = () => {
   if (!blog) return <p>Blog not found</p>;
 
   return (
-    <div className='flex flex-col gap-[56px] py-[56px] mx-auto max-w-[720px]'>
+    <div className='flex flex-col gap-[56px] pt-[168px] py-[96px] mx-auto max-w-[720px]'>
       <div className='flex flex-col gap-3'>
         <p className='text-sm font-semibold text-[#9A57FE]'>{blog.category}</p>
         <h1 className='text-[48px] font-semibold text-gray-900'>{blog.postName}</h1>

@@ -6,6 +6,7 @@ import ApplyModal from '../modal/ApplyModal';
 import AuthModal from '../modal/AuthModal';
 import { useAuth } from '@/hooks/AuthProvider';
 import React from 'react';
+import Link from 'next/link';
 
 const faqs = [
     {
@@ -115,12 +116,18 @@ const Sidebar = () => {
                         Get started & Personalize your experience
                     </p>
                     <div className="flex gap-2 items-center pt-3 text-sm font-semibold">
-                        <button onClick={handleModalToggle} className="px-3 py-2 2xl:px-4 2xl:py-3 rounded-full bg-white text-[#803DF8] flex items-center gap-2">
+                        <Link href="/profile">
+                            <button className="px-4 py-2 2xl:px-5 2xl:py-3 rounded-full border border-white text-[#803DF8] bg-white flex items-center gap-2">
+                                View Profile
+                            </button>
+                        </Link>
+
+                        {/* <button onClick={handleModalToggle} className="px-3 py-2 2xl:px-4 2xl:py-3 rounded-full bg-white text-[#803DF8] flex items-center gap-2">
                             Apply Now
                             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 20 12" fill="none">
                                 <path d="M0 5.99999C0 6.22101 0.0877975 6.43297 0.244078 6.58925C0.400358 6.74553 0.61232 6.83333 0.833333 6.83333H17.155L13.5783 10.41C13.4265 10.5672 13.3425 10.7777 13.3444 10.9962C13.3463 11.2147 13.434 11.4237 13.5885 11.5782C13.743 11.7327 13.952 11.8203 14.1705 11.8222C14.389 11.8241 14.5995 11.7401 14.7567 11.5883L19.7567 6.58833C19.8338 6.51166 19.895 6.42051 19.9367 6.32012C19.9785 6.21972 20 6.11206 20 6.00333V5.99999C20 5.89166 19.9783 5.78333 19.935 5.68166C19.8935 5.58063 19.8323 5.48886 19.755 5.41166L14.755 0.411661C14.5978 0.259862 14.3873 0.175867 14.1688 0.177766C13.9503 0.179665 13.7413 0.267305 13.5868 0.421812C13.4323 0.576319 13.3447 0.785329 13.3428 1.00383C13.3409 1.22232 13.4249 1.43283 13.5767 1.58999L17.155 5.16666H0.833333C0.61232 5.16666 0.400358 5.25446 0.244078 5.41074C0.0877975 5.56702 0 5.77898 0 5.99999Z" fill="#803DF8" />
                             </svg>
-                        </button>
+                        </button> */}
 
                         {
                             !user &&
@@ -131,7 +138,7 @@ const Sidebar = () => {
 
                         {
                             user &&
-                            <button onClick={() => {handleSignOut(); setIsOpen(false);}} className="px-4 py-2 2xl:px-5 2xl:py-3 rounded-full border border-white text-white bg-[#803DF8] flex items-center gap-2">
+                            <button onClick={() => { handleSignOut(); setIsOpen(false); }} className="px-4 py-2 2xl:px-5 2xl:py-3 rounded-full border border-white text-white bg-[#803DF8] flex items-center gap-2">
                                 Log out
                             </button>
                         }
@@ -154,7 +161,7 @@ const Sidebar = () => {
                 {/* Footer Section */}
                 <div className="pt-5 p-[15px_25px] 2xl:p-[20px_32px] bg-[#FAFAFA] border-t border-[Gray/400]">
                     <div className="rounded-[43px] p-[2px] bg-purpleGradient">
-                        <button type="submit" className="h-[40px] 2xl:h-[48px] text-base font-semibold text-[#9A57FE] hover:text-white bg-white hover:bg-purpleGradient hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] rounded-[43px] w-full">
+                        <button type="submit" className="h-[40px] 2xl:h-[48px] text-base font-semibold text-[#9A57FE] hover:text-white bg-white hover:bg-purpleGradient hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] rounded-[43px] w-full transition-all duration-300 ease-in-out">
                             Support & Contact
                         </button>
                     </div>

@@ -45,18 +45,18 @@ const Header = () => {
     if (path.startsWith("#")) {
       // Ensure hash-based links are only active if the section is visible
       return currentHash === path
-        ? "text-[#BB7AFE] border-b-2 border-[#BB7AFE]"
+        ? "text-[#BB7AFE] border-b-2 font-semibold border-[#BB7AFE]"
         : "text-primaryTextColor";
     }
     return pathname === path
-      ? "text-[#BB7AFE] border-b-2 border-[#BB7AFE]"
+      ? "text-[#BB7AFE] font-semibold border-b-2 border-[#BB7AFE]"
       : "text-primaryTextColor";
   };
 
   return (
     <div className='fixed w-full top-0 z-50 bg-white border-b border-[#05010D1A]'>
-      <div className='2xl:w-[1536px] mx-auto font-inter'>
-        <div className='flex justify-between items-center px-8 py-3'>
+      <div className='max-w-[1294px] mx-auto font-inter'>
+        <div className='flex justify-between items-center py-3'>
           <div className='flex justify-start'>
             <Link href='/'>
               <Image src="/images/landing/logo.svg" alt='logo' width={190} height={46} />
@@ -66,15 +66,9 @@ const Header = () => {
           <div className='flex items-center gap-8'>
             {
               navRoutes.map((route, idx) => (
-                route.title === 'FAQ' ? (
-                  <Link href={route.url} key={idx} className={`text-base font-semibold ${isActive(route.url)}`}>
-                    {route.title}
-                  </Link>
-                ) : (
-                  <a href={route.url} key={idx} className={`text-base font-semibold cursor-pointer ${isActive(route.url)}`}>
-                    {route.title}
-                  </a>
-                )
+                <Link href={route.url} key={idx} className={`text-base cursor-pointer ${isActive(route.url)}`}>
+                  {route.title}
+                </Link>
               ))
             }
           </div>

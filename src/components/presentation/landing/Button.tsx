@@ -16,7 +16,7 @@ const Button = ({ text, onClick, banner, color, className }: ApplyButtonProps) =
         <div
             onClick={onClick}
             className={`${className} ${bgGradient} p-[16px_28px] flex justify-between items-center rounded-[43px] font-inter cursor-pointer`}>
-            <p className={`text-2xl font-semibold text-${color}`}>{text}</p>
+            <p className={`text-xl 2xl:text-2xl font-medium 2xl:font-semibold text-${color}`}>{text}</p>
             <ArrowRightIcon color={color} />
         </div>
     )

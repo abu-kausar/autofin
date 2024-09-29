@@ -20,25 +20,31 @@ const Hero: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
                         AutoFin Credit streamlines the auto financing process, offering a straightforward application and personalized solutions to deliver a seamless experience for each customer.
                     </p>
 
-                    <Button
+                    {/* <Button
                         text={user ? 'Apply Now' : 'Sign in'}
                         onClick={handleModalToggle}
                         color='#fff'
                         className='w-[284px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]'
+                    /> */}
+                    <Button
+                        text={user ? 'Apply Now' : 'Sign in'}
+                        onClick={handleModalToggle}
+                        color='#fff'
+                        className='w-[284px] text-white transition-all duration-300 ease-in-out hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] hover:transform hover:translate-y-[-4px]'
                     />
 
                     <div className='flex gap-5 pt-6 mt-5 border-t border-[#00000026]'>
                         <div className='w-1/2 flex gap-5 items-center border-r border-bgBlack border-opacity-[0.08]'>
                             <img src="/images/landing/happyCustomers.png" alt="happy-customer" />
                             <div className='flex flex-col'>
-                                <h2 className='text-[32px] text-bgBlack font-bold'>2,291</h2>
+                                <h2 className='text-[30px] 2xl:text-[32px] text-bgBlack font-bold'>2,291</h2>
                                 <p className='text-base font-normal text-bgBlack text-opacity-60'>
                                     Happy Customers
                                 </p>
                             </div>
                         </div>
                         <div className='flex flex-col'>
-                            <h2 className='text-[32px] text-bgBlack font-bold'>4.8/5</h2>
+                            <h2 className='text-[30px] 2xl:text-[32px] text-bgBlack font-bold'>4.8/5</h2>
                             <span className='flex gap-[10px]'>
                                 <img src="/images/landing/stars.svg" alt="stars" />
                                 <p className='text-base font-normal text-bgBlack text-opacity-60'>

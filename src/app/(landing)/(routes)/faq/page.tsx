@@ -6,7 +6,7 @@ import React from 'react'
 const FaqPage = () => {
   return (
     <>
-      <div className='flex text-center flex-col gap-3 p-[96px_0_96px_0]'>
+      <div className='flex text-center flex-col gap-3 p-[168px_0_96px_0]'>
         <p className='text-base font-semibold text-[#7F56D9]'>FAQs</p>
         <h1 className='text-5xl font-semibold text-gray-900'>We’re here to help</h1>
         <p className='text-xl font-normal text-[#475467] mt-3'>Have questions? We’re here to help.</p>

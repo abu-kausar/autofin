@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 const ContactPage = () => {
   return (
-    <div className='flex items-center p-[56px_0_96px_0] gap-16 mx-auto max-w-[1294px]'>
+    <div className='flex items-center p-[168px_0_96px_0] gap-16 mx-auto max-w-[1294px]'>
       <div className='w-[70%] flex items-center justify-center'>
         <div className='flex flex-col gap-12'>
           <div className='flex flex-col gap-5'>

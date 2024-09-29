@@ -34,7 +34,7 @@ const Footer = () => {
                           <Link
                             href={link.url}
                             key={link.id}
-                            className='text-base font-semibold text-[#EAECF0] cursor-pointer'
+                            className='text-base font-medium text-[#EAECF0] hover:text-[#BB7AFE] cursor-pointer'
                           >
                             {link.title}
                           </Link>

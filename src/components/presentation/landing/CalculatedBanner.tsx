@@ -3,10 +3,12 @@ import React from 'react'
 const CalculatedBanner = ({ loanDetails }: any) => {
   return (
     <div className='w-[38%] h-full p-2 flex items-center'>
-      <div className='py-[64px] px-7 bg-[#F3F2FD9E] rounded-[6px] border border-[#0079CA29] flex flex-col'>
-        <h2 className='text-xl font-semibold text-bgBlack'>Monthly Payment</h2>
-        <h1 className='text-[36px] font-bold text-[#007313]'>${loanDetails?.monthlyInstallment}</h1>
-        <p className='text-base font-normal text-[#707277]'>Estimated monthly payment for the lease.</p>
+      <div className='py-[41px] 2xl:py-[48px] px-7 bg-[#F3F2FD9E] rounded-[6px] border border-[#0079CA29] flex flex-col'>
+        <div className='bg-white rounded-[11px] p-[14px_18px]'>
+          <h2 className='text-xl font-semibold text-bgBlack'>Monthly Payment</h2>
+          <h1 className='text-[36px] font-bold text-[#007313]'>${loanDetails?.monthlyInstallment}</h1>
+          <p className='text-base font-normal text-[#707277]'>Estimated monthly payment for the lease.</p>
+        </div>
 
         <h3 className='text-lg font-medium text-bgBlack mt-5'>Total Lease Cost : ${loanDetails?.totalPayment}</h3>
         <p className='text-sm font-normal text-[#707277]'>Total lease cost over the term.</p>
