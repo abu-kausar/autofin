@@ -10,9 +10,22 @@ import Sidebar from './Sidebar';
 const Header = () => {
   const pathname = usePathname();
 
-  const isActive = (path: string) =>
-    pathname === path
-      ? "text-[#BB7AFE] border-b-2 border-[#BB7AFE]" : "text-primaryTextColor";
+  // const isActive = (path: string) =>
+  //   pathname === path
+  //     ? "text-[#BB7AFE] border-b-2 border-[#BB7AFE]" : "text-primaryTextColor";
+
+  const isActive = (path: string) => {
+    if (typeof window !== 'undefined') {
+      const currentHash = window.location.hash;
+
+      // Check if the path matches the current pathname or hash
+      return (pathname === path || currentHash === path)
+        ? "text-[#BB7AFE] border-b-2 border-[#BB7AFE]"
+        : "text-primaryTextColor";
+    }
+
+    return "text-primaryTextColor"; // Default class when window is not available (SSR)
+  };
 
   return (
     <div className='border-b border-[#05010D1A]'>
@@ -27,7 +40,9 @@ const Header = () => {
           <div className='flex items-center gap-8'>
             {
               navRoutes.map((route, idx) => (
-                <Link href={route.url} key={idx} className={`text-base font-semibold ${isActive(route.url)}`}>{route.title}</Link>
+                <Link href={route.url} key={idx} className={`text-base font-semibold cursor-pointer ${isActive(route.url)}`}>
+                  {route.title}
+                </Link>
               ))
             }
           </div>

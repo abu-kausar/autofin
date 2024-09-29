@@ -5,6 +5,7 @@ import Image from 'next/image';
 import ApplyModal from '../modal/ApplyModal';
 import AuthModal from '../modal/AuthModal';
 import { useAuth } from '@/hooks/AuthProvider';
+import React from 'react';
 
 const faqs = [
     {

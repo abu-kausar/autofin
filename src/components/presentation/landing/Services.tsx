@@ -8,7 +8,7 @@ const Services: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
     const { user } = useAuth();
 
     return (
-        <div className='bg-[url("/images/bg.png")] mx-auto py-[96px]'>
+        <div id='services' className='bg-[url("/images/bg.png")] mx-auto py-[96px]'>
             <div className='mx-auto max-w-[1294px] flex items-center'>
                 <div className='w-1/2 flex flex-col gap-[50px]'>
                     <div className='flex flex-col gap-3'>

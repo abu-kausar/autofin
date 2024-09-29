@@ -2,27 +2,27 @@ export const navRoutes = [
     {
         id: 1,
         title: 'Home',
-        url: '/',
+        url: '#home',
     },
     {
         id: 2,
         title: 'Loan Calculator',
-        url: '/loan-calculator',
+        url: '#loan-calculator',
     },
     {
         id: 3,
         title: 'How it Works',
-        url: '/how-it-works',
+        url: '#how-it-works',
     },
     {
         id: 4,
         title: 'Reviews',
-        url: '/reviews',
+        url: '#reviews',
     },
     {
         id: 5,
         title: 'Services',
-        url: '/services',
+        url: '#services',
     },
     {
         id: 6,
