@@ -1,35 +1,61 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { navRoutes } from './landing/utils/landingRoutes';
 import { usePathname } from 'next/navigation';
-import Dropdown from './Dropdown';
 import Sidebar from './Sidebar';
 
 const Header = () => {
   const pathname = usePathname();
+  const [currentHash, setCurrentHash] = useState<string>("");
 
-  // const isActive = (path: string) =>
-  //   pathname === path
-  //     ? "text-[#BB7AFE] border-b-2 border-[#BB7AFE]" : "text-primaryTextColor";
+  // Set up an IntersectionObserver to track visible sections
+  useEffect(() => {
+    const sections = document.querySelectorAll('div[id]');
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5 // Trigger when 50% of the section is visible
+    };
 
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setCurrentHash(`#${entry.target.id}`);
+        }
+      });
+    }, observerOptions);
+
+    // Observe each section with an ID
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    // Clean up observer when the component unmounts
+    return () => {
+      sections.forEach(section => {
+        observer.unobserve(section);
+      });
+    };
+  }, []);
+
+  // Combine pathname and hash for active check
   const isActive = (path: string) => {
-    if (typeof window !== 'undefined') {
-      const currentHash = window.location.hash;
-
-      // Check if the path matches the current pathname or hash
-      return (pathname === path || currentHash === path)
+    if (path.startsWith("#")) {
+      // Ensure hash-based links are only active if the section is visible
+      return currentHash === path
         ? "text-[#BB7AFE] border-b-2 border-[#BB7AFE]"
         : "text-primaryTextColor";
     }
-
-    return "text-primaryTextColor"; // Default class when window is not available (SSR)
+    return pathname === path
+      ? "text-[#BB7AFE] border-b-2 border-[#BB7AFE]"
+      : "text-primaryTextColor";
   };
 
   return (
-    <div className='border-b border-[#05010D1A]'>
-      <div className='2xl:w-[1536px] mx-auto font-inter '>
+    <div className='fixed w-full top-0 z-50 bg-white border-b border-[#05010D1A]'>
+      <div className='2xl:w-[1536px] mx-auto font-inter'>
         <div className='flex justify-between items-center px-8 py-3'>
           <div className='flex justify-start'>
             <Link href='/'>
@@ -40,19 +66,24 @@ const Header = () => {
           <div className='flex items-center gap-8'>
             {
               navRoutes.map((route, idx) => (
-                <Link href={route.url} key={idx} className={`text-base font-semibold cursor-pointer ${isActive(route.url)}`}>
-                  {route.title}
-                </Link>
+                route.title === 'FAQ' ? (
+                  <Link href={route.url} key={idx} className={`text-base font-semibold ${isActive(route.url)}`}>
+                    {route.title}
+                  </Link>
+                ) : (
+                  <a href={route.url} key={idx} className={`text-base font-semibold cursor-pointer ${isActive(route.url)}`}>
+                    {route.title}
+                  </a>
+                )
               ))
             }
           </div>
 
-          {/* <Dropdown /> */}
           <Sidebar />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
