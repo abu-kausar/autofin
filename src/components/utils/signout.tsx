@@ -1,10 +1,12 @@
 import auth from "@/firebase/firebaseConfig";
 import { signOut } from "firebase/auth";
+import toast from "react-hot-toast";
 
 export const handleSignOut = () => {
     signOut(auth).then(() => {
-        alert('logged out');
+        toast.success('Logout successful');
     }).catch((error) => {
+        toast.error('Logout failed');
         console.log(error);
     });
 }
