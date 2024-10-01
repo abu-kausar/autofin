@@ -1,6 +1,7 @@
 'use client'
 import ApplyModal from '@/components/modal/ApplyModal';
 import AuthModal from '@/components/modal/AuthModal';
+import Bot from '@/components/presentation/Bot';
 import Banner from '@/components/presentation/landing/Banner';
 import GetApproved from '@/components/presentation/landing/GetApproved';
 import Hero from '@/components/presentation/landing/Hero';
@@ -37,6 +38,7 @@ const HomePage = () => {
       ) : (
         <AuthModal isVisible={isModalVisible} onClose={closeModal} />
       )}
+      <Bot/>
     </div>
   )
 }

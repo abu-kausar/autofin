@@ -150,3 +150,11 @@ body,
 .custom-linear-bg {
   background: linear-gradient(180deg, #803DF8 7.68%, #FFF 33.41%);
 }
+
+.transition-opacity {
+  transition: opacity 0.3s ease;
+}
+
+.transition-transform {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}

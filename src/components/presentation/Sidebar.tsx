@@ -98,14 +98,14 @@ const Sidebar = () => {
 
             {/* Sidebar overlay */}
             <div
-                className={`fixed inset-0 overlay-color bg-opacity-50 z-40 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                className={`fixed inset-0 overlay-color bg-opacity-50 z-[100] transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                 onClick={() => setIsOpen(false)}
             ></div>
 
             {/* Sidebar */}
             <div
                 ref={sidebarRef}
-                className={`fixed top-0 right-0 h-[100vh] w-[360px] 2xl:w-[420px] flex flex-col bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                className={`fixed top-0 right-0 h-[100vh] w-[360px] 2xl:w-[420px] flex flex-col bg-white shadow-lg z-[500] transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
             >
                 {/* Header Section */}
                 <div className="p-[15px_25px] 2xl:p-[20px_32px] bg-[#803DF8] flex flex-col border-b border-[#FFFFFF3A]">
