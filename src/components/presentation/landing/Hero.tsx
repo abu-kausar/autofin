@@ -54,7 +54,9 @@ const Hero: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
                         </div>
                     </div>
                 </div>
-                <img src="/images/landing/hero.png" alt="hero" className='w-1/2 h-[100vh]' />
+                <div className='w-1/2 h-auto max-h-[700px] 2xl:max-h-[750px]'>
+                    <img src="/images/landing/hero.png" alt="hero" className='w-full h-full object-contain' />
+                </div>
             </div>
 
             {/* LoanCalculator positioned here */}
