@@ -45,8 +45,8 @@ const Header = () => {
     if (path.startsWith("#")) {
       // Ensure hash-based links are only active if the section is visible
       return currentHash === path
-        ? "text-[#BB7AFE] border-b-2 font-semibold border-[#BB7AFE]"
-        : "text-primaryTextColor";
+        ? "text-[#BB7AFE] border-b-2 border-[#BB7AFE]"
+        : "text-primaryTextColor border-b-2 border-transparent";
     }
     return pathname === path
       ? "text-[#BB7AFE] font-semibold border-b-2 border-[#BB7AFE]"
@@ -66,7 +66,7 @@ const Header = () => {
           <div className='flex items-center gap-8'>
             {
               navRoutes.map((route, idx) => (
-                <Link href={route.url} key={idx} className={`text-base cursor-pointer ${isActive(route.url)}`}>
+                <Link href={route.url} key={idx} className={`text-base cursor-pointer font-medium ${isActive(route.url)}`}>
                   {route.title}
                 </Link>
               ))

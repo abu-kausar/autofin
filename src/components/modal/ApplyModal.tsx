@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ModalWrapper from './ModalWrapper';
 import IntroState from '../applyStates/intro';
 import PersonalInfo from '../applyStates/personalInfo';
 import ContactInfo from '../applyStates/contactInfo';
@@ -9,6 +8,7 @@ import Terms from '../applyStates/terms';
 import SSN from '../applyStates/ssn';
 import LoadingState from '../applyStates/loadingState';
 import { useAuth } from '@/hooks/AuthProvider';
+import { ModalWrapper } from './ModalWrapper';
 
 interface ModalProps {
   isVisible: boolean;
@@ -17,7 +17,6 @@ interface ModalProps {
 
 const ApplyModal = ({ isVisible, onClose }: ModalProps) => {
   const { user } = useAuth();
-  console.log(user);
   const [state, setState] = useState('pre');
 
   // Form data for all steps
@@ -79,7 +78,7 @@ const ApplyModal = ({ isVisible, onClose }: ModalProps) => {
       case 'terms':
         return <Terms state={state} setState={setState} loanData={loanData} handleChange={handleChange} />;
       case 'ssn':
-        return <SSN state={state} setState={setState} loanData={loanData} handleChange={handleChange} />;
+        return <SSN state={state} setState={setState} loanData={loanData} handleChange={handleChange} onClose={onClose}/>;
       case 'loading':
         return <LoadingState />;
       default:

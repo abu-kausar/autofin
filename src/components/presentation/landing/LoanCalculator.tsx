@@ -3,8 +3,9 @@ import React, { useState } from 'react'
 import LoanForm from './LoanForm'
 import CalculatorBanner from './CalculatorBanner'
 import CalculatedBanner from './CalculatedBanner'
+import { LandingPageProps } from '@/components/utils/interface'
 
-const LoanCalculator = () => {
+const LoanCalculator: React.FC<LandingPageProps> = ({handleModalToggle}) => {
   const [isCalculated, setIsCalculated] = useState(false);
   const [loanDetails, setLoanDetails] = useState<{ monthlyInstallment: string; totalPayment: string } | null>(null);
 
@@ -22,7 +23,7 @@ const LoanCalculator = () => {
       </div>
       {
         isCalculated && loanDetails ? (
-          <CalculatedBanner loanDetails={loanDetails} />
+          <CalculatedBanner loanDetails={loanDetails} handleModalToggle={handleModalToggle}/>
         ) : (
           <CalculatorBanner />
         )

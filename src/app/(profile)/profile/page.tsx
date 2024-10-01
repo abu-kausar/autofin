@@ -86,7 +86,7 @@ const ProfilePage = () => {
     <div className='flex items-center justify-center flex-col w-full min-h-[100vh]'>
       {
         !loading && user ? (
-          <div className='w-[1294px] mx-auto pt-12 pb-24'>
+          <div className='w-[1294px] mx-auto pt-28 pb-24'>
             <div className='mx-8 flex flex-col gap-[38px]'>
               <h1 className='text-[30px] font-semibold text-gray-900'>Profile</h1>
               <div className='flex gap-24'>

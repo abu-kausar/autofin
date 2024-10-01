@@ -1,4 +1,4 @@
-import ModalWrapper from "./ModalWrapper";
+import { ModalWrapper } from "./ModalWrapper";
 
 interface ModalProps {
     isVisible: boolean;

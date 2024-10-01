@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import ModalWrapper from './ModalWrapper'
-import ApplyHeader from '../applyStates/ApplyHeader';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import InputField from '../applyStates/InputField';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
 import auth from '../../firebase/firebaseConfig';
 import { baseUrl } from '../utils/urls';
+import toast from 'react-hot-toast';
+import { AuthModalWrapper } from './ModalWrapper';
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -23,6 +23,8 @@ interface SigninProps {
 
 const AuthModal = ({ isVisible, onClose }: ModalProps) => {
     const { register, formState: { errors }, handleSubmit } = useForm<SigninProps>();
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const [loginState, setLoginState] = useState(true);
     const [user, setUser] = useState({
@@ -34,15 +36,21 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
 
     const onSubmit: SubmitHandler<SigninProps> = (data) => {
         const { firstname, lastname, email, password } = data;
+        setLoading(true);
 
         if (loginState) {
             // Sign in with email and password
             signInWithEmailAndPassword(auth, email, password)
                 .then(result => {
+                    setLoading(false);
+                    toast.success('Login successful');
                     onClose();
                     console.log(result.user);
                 })
                 .catch(err => {
+                    setLoading(false);
+                    toast.error('Login failed');
+                    setError(err.message);
                     console.log(err);
                 });
         } else {
@@ -53,9 +61,6 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
                         fullname: `${firstname} ${lastname}`,
                         email: email
                     };
-
-                    // Log the user data being sent to the backend
-                    console.log('User data being sent:', user);
 
                     // Send user data to backend
                     fetch(`${baseUrl}/auth/user`, {
@@ -80,18 +85,22 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
                             console.error('Error from fetch:', error);
                         });
 
-
                     // Update the profile with firstname and lastname
                     updateProfile(result.user, {
                         displayName: `${firstname} ${lastname}`
                     }).then(() => {
-                        console.log('Profile updated successfully!');
+                        setLoading(false);
+                        toast.success('Signup successful');
                         onClose();
                     }).catch(error => {
+                        setLoading(false);
                         console.log('Profile update error:', error);
                     });
                 })
                 .catch(err => {
+                    setError(err.message);
+                    setLoading(false);
+                    toast.error('Signup failed');
                     console.log('Signup error:', err);
                 });
         }
@@ -134,20 +143,19 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
     if (!isVisible) return null;
 
     return (
-        <ModalWrapper onClose={onClose}>
-            <div className='px-6 pt-6'>
-                <ApplyHeader />
-            </div>
-
-            <div className='max-h-[500px] overflow-y-auto flex flex-col gap-6 scroll-hidden-functional p-6'>
-                <div className=''>
-                    <h1 className='text-lg font-semibold text-[#12141D]'>{loginState ? 'Sign in' : 'Sign up'}</h1>
+        <AuthModalWrapper onClose={onClose}>
+            <div className='overflow-y-auto flex flex-col gap-6 scroll-hidden-functional p-6'>
+                <div className='flex flex-col items-center justify-center'>
+                    <img src="/images/logo.png" alt="" className='h-12 2xl:h-[56px] w-12 2xl:w-[56px]' />
+                    <div className=''>
+                        <h1 className='text-center text-2xl 2xl:text-[30px] font-semibold text-[#12141D]'>{loginState ? 'Sign in' : 'Sign up'}</h1>
+                        <p className='text-sm 2xl:text-base font-normal text-[#667085] px-5 text-center mt-1 2xl:mt-3'>Welcome back! Use your email address to look up your account or create a new one.</p>
+                    </div>
                 </div>
-
                 <form onSubmit={handleSubmit(onSubmit)} className='w-full flex flex-col gap-6 mb-2'>
                     {
                         !loginState &&
-                        <div className='flex gap-2'>
+                        <div className='flex gap-2 w-full'>
                             <InputField<SigninProps>
                                 label="Firstname"
                                 name="firstname"
@@ -187,8 +195,21 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
                         required="Password is required"
                     />
 
+                    {
+                        error && <p className='text-red-500'>{error}</p>
+                    }
+
                     <button type="submit" className="w-full h-[46px] whitespace-nowrap text-base font-semibold bg-purpleGradient rounded-[43px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]">
-                        {loginState ? 'Sign in' : 'Sign up'}
+                        {
+                            loading ? (
+                                <div className="flex justify-center items-center gap-2 mx-auto">
+                                    Loading
+                                    <span className='loader'></span>
+                                </div>
+                            ) : (
+                                loginState ? 'Sign in' : 'Sign up'
+                            )
+                        }
                     </button>
 
                     <div className='text-center text-sm'>
@@ -269,7 +290,7 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
                     </ul>
                 </div>
             </div>
-        </ModalWrapper>
+        </AuthModalWrapper>
     )
 }
 

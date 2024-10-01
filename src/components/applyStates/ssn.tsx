@@ -1,25 +1,31 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import ApplyFooter from './Footer'
 import ApplyHeader from './ApplyHeader'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import InputField from './InputField';
 import { baseUrl } from '../utils/urls';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 interface SetProps {
     state: string;
     setState: Dispatch<SetStateAction<string>>;
     loanData: any;
     handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+    onClose: () => void;
 }
 
 interface SSNProps {
     ssn: string;
 }
 
-const SSN = ({ state, setState, loanData, handleChange }: SetProps) => {
+const SSN = ({ state, setState, loanData, handleChange, onClose }: SetProps) => {
     const { register, formState: { errors }, handleSubmit } = useForm<SSNProps>();
+    const [loading, setLoading] = useState(false);
+    const [isApplied, setIsApplied] = useState(false);
 
     const onSubmit: SubmitHandler<SSNProps> = (data) => {
+        setLoading(true);
         try {
             fetch(`${baseUrl}/loan`, {
                 method: 'POST',
@@ -37,14 +43,16 @@ const SSN = ({ state, setState, loanData, handleChange }: SetProps) => {
                     return res.json();
                 })
                 .then(data => {
-                    console.log('Success:', data);
-                    alert("Successfully applied!");
-                    setState('loading');
+                    setIsApplied(true);
+                    setLoading(false);
+                    toast.success("Successfully applied!");
                 })
                 .catch(error => {
+                    setLoading(false);
                     console.error('Error from fetch:', error);
                 });
         } catch (err) {
+            setLoading(false);
             console.log(err);
         }
     }
@@ -70,18 +78,50 @@ const SSN = ({ state, setState, loanData, handleChange }: SetProps) => {
                             required="Social security is required"
                         />
                     </div>
-                    <div
-                        className='pt-6 border-t border-[#EBEBEB]'>
-                        <button
-                            type='submit'
-                            className="w-full whitespace-nowrap p-[16px_28px] text-base font-semibold bg-purpleGradient rounded-[43px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]"
-                        >
-                            Next
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
+                    {
+                        isApplied ? (
+                            <div
+                                className='pt-6 border-t border-[#EBEBEB]'>
+                                <button
+                                    onClick={onClose}
+                                    className="w-full whitespace-nowrap p-[16px_28px] text-base font-semibold bg-purpleGradient rounded-[43px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]"
+                                >
+                                    {
+                                        loading ? (
+                                            <div className="flex justify-center items-center gap-2 mx-auto" >
+                                                Loading
+                                                < span className='loader' ></span>
+                                            </div>
+                                        ) : (
+                                            <p>Close</p>
+                                        )
+                                    }
+                                </button>
+                            </div >
+                        ) : (
+                            <div
+                                className='pt-6 border-t border-[#EBEBEB]'>
+                                <button
+                                    type='submit'
+                                    className="w-full whitespace-nowrap p-[16px_28px] text-base font-semibold bg-purpleGradient rounded-[43px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]"
+                                >
+                                    {
+                                        loading ? (
+                                            <div className="flex justify-center items-center gap-2 mx-auto" >
+                                                Loading
+                                                < span className='loader' ></span>
+                                            </div>
+                                        ) : (
+                                            <p>Apply</p>
+                                        )
+                                    }
+                                </button>
+                            </div >
+                        )
+                    }
+                </form >
+            </div >
+        </div >
     )
 }
 
