@@ -146,7 +146,7 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
         <AuthModalWrapper onClose={onClose}>
             <div className='overflow-y-auto flex flex-col gap-6 scroll-hidden-functional p-6'>
                 <div className='flex flex-col items-center justify-center'>
-                    <img src="/images/logo.png" alt="" className='h-12 2xl:h-[56px] w-12 2xl:w-[56px]' />
+                    <img src="/images/logo.svg" alt="" className='h-12 2xl:h-[56px] w-12 2xl:w-[56px]' />
                     <div className=''>
                         <h1 className='text-center text-2xl 2xl:text-[30px] font-semibold text-[#12141D]'>{loginState ? 'Sign in' : 'Sign up'}</h1>
                         <p className='text-sm 2xl:text-base font-normal text-[#667085] px-5 text-center mt-1 2xl:mt-3'>Welcome back! Use your email address to look up your account or create a new one.</p>

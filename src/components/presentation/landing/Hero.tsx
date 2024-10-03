@@ -21,21 +21,22 @@ const Hero: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
                     </p>
 
                     {/* <Button
-                        text={user ? 'Apply Now' : 'Sign in'}
-                        onClick={handleModalToggle}
-                        color='#fff'
-                        className='w-[284px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]'
-                    /> */}
-                    <Button
                         text={'Apply Now'}
                         onClick={handleModalToggle}
                         color='#fff'
                         className='w-[250px] h-14 text-white transition-all duration-300 ease-in-out hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] hover:transform hover:translate-y-[-4px] will-change-transform'
+                    /> */}
+
+                    <Button
+                        text={'Apply Now'}
+                        onClick={handleModalToggle}
+                        color='#fff'
+                        className='w-[250px] h-14 text-white transition-all duration-300 ease-in-out hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] hover:scale-105 will-change-transform backface-visibility-hidden transform translateZ-0'
                     />
 
                     <div className='flex gap-5 pt-6 mt-5 border-t border-[#00000026]'>
                         <div className='w-1/2 flex gap-5 items-center border-r border-bgBlack border-opacity-[0.08]'>
-                            <img src="/images/landing/happyCustomers.png" alt="happy-customer" className='h-[60px]'/>
+                            <img src="/images/landing/happyCustomers.png" alt="happy-customer" className='h-[60px]' />
                             <div className='flex flex-col'>
                                 <h2 className='text-[30px] text-bgBlack font-bold leading-[42px]'>2,291</h2>
                                 <p className='text-base font-normal text-bgBlack text-opacity-60 leading-[24px]'>
@@ -60,7 +61,7 @@ const Hero: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
             </div>
 
             {/* LoanCalculator positioned here */}
-            <LoanCalculator handleModalToggle={handleModalToggle}/>
+            <LoanCalculator handleModalToggle={handleModalToggle} />
         </div>
     );
 };

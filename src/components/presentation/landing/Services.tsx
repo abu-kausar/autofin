@@ -26,7 +26,7 @@ const Services: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
                                 >
                                     <div className="flex gap-3 items-center">
                                         <img src={service.image} alt="" className="h-[24px] w-[24px]" />
-                                        <h3 className="text-xl text-bgBlack font-semibold">{service.name}</h3>
+                                        <h3 className="text-lg 2xl:text-xl text-bgBlack font-semibold whitespace-nowrap">{service.name}</h3>
                                     </div>
                                     <p className="text-base font-normal text-[#707277]">{service.description}</p>
                                 </div>
@@ -37,7 +37,7 @@ const Services: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
                         text={'Apply Now'}
                         onClick={handleModalToggle}
                         color='#fff'
-                        className='w-[250px] h-14 text-white transition-all duration-300 ease-in-out hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] hover:transform hover:translate-y-[-4px] will-change-transform'
+                        className='w-[250px] h-14 text-white transition-all duration-300 ease-in-out hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] hover:scale-105 will-change-transform backface-visibility-hidden transform translateZ-0'
                     />
                 </div>
                 <div className='w-1/2 flex flex-col'>
