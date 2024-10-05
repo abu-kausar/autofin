@@ -25,7 +25,7 @@ const CalculatedBanner = ({ loanDetails, handleModalToggle }: any) => {
           text={'Apply Now'}
           onClick={handleModalToggle}
           color='#fff'
-          className='mt-4 w-full h-14 text-white transition-all duration-300 ease-in-out hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] transform hover:scale-105 will-change-transform backface-visibility-hidden translateZ-0'
+          className='mt-4 w-full h-14 text-white duration-300 ease-in-out hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] will-change-transform'
         />
       </div>
     </div>

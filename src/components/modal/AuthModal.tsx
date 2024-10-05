@@ -199,7 +199,7 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
                         error && <p className='text-red-500'>{error}</p>
                     }
 
-                    <button type="submit" className="w-full h-[46px] whitespace-nowrap text-base font-bold bg-purpleGradient rounded-[43px] text-white">
+                    <button type="submit" className="w-full h-[46px] whitespace-nowrap text-base font-bold bg-purpleGradient hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] rounded-[43px] text-white">
                         {
                             loading ? (
                                 <div className="flex justify-center items-center gap-2 mx-auto">

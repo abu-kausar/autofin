@@ -47,7 +47,7 @@ const HiddenFees: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
                         text={'Apply Now'}
                         onClick={handleModalToggle}
                         color='#fff'
-                        className='w-[250px] h-14 text-white transition-all duration-300 ease-in-out hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] hover:scale-105 will-change-transform backface-visibility-hidden transform translateZ-0'
+                        className='w-[250px] h-14 text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] duration-300 ease-in-out will-change-transform'
                     />
                 </div>
             </div>

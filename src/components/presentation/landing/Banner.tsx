@@ -17,7 +17,7 @@ const Banner: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
                     onClick={handleModalToggle}
                     banner={true}
                     color="12141D"
-                    className='w-[250px] h-14 transform hover:scale-105 transition-all duration-300 ease-in-out will-change-transform backface-visibility-hidden translateZ-0'
+                    className='w-[250px] h-14 transform duration-300 ease-in-out will-change-transform'
                 />
             </div>
         </div>
