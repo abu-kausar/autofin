@@ -32,7 +32,7 @@ const HiddenFees: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
                 <div className='w-1/2 flex flex-col gap-5'>
                     <p className='text-lg font-normal text-[#7D7F84] opacity-90 uppercase'>No hidden fees</p>
                     <h1 className='text-[32px] font-bold text-bgBlack leading-[44px] -tracking-[0.64]'>Low Interest Auto Loans at AutoFin Credit</h1>
-                    <p className='text-base font-normal text-bgBlack'>Our low-interest auto loans make vehicle ownership more accessible and affordable, empowering you to upgrade your ride without the financial burden.</p>
+                    <p className='text-base font-normal text-[#475467]'>Our low-interest auto loans make vehicle ownership more accessible and affordable, empowering you to upgrade your ride without the financial burden.</p>
                     <div className='flex flex-col gap-4 mt-[10px] mb-5'>
                         {
                             fees.map((fee, idx) => (
