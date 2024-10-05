@@ -56,7 +56,7 @@ const LoanForm = ({ setIsCalculated = () => { }, setLoanDetails = () => { } }: L
           </div>
 
           <div className='w-1/2 flex flex-col gap-3'>
-            <h3 className='text-base font-medium text-bgBlack'>Downpayment</h3>
+            <h3 className='text-base font-medium text-bgBlack'>Down Payment</h3>
             <input {...register("downpayment", { required: true })} placeholder="$3000" className='h-12 p-[10px_24px] outline-none focus:border-[#BB7AFE] text-base font-normal text-bgBlack border border-[#D0D5DD] rounded-[54px] box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05)' />
           </div>
         </div>
@@ -74,11 +74,12 @@ const LoanForm = ({ setIsCalculated = () => { }, setLoanDetails = () => { } }: L
               className='h-12 p-[10px_24px] outline-none focus:border-[#BB7AFE] text-base font-normal text-bgBlack border border-[#D0D5DD] rounded-[54px] select-arrow-padding select-with-placeholder'
               defaultValue=""
             >
-              <option value="" disabled hidden>Select year</option>
+              <option value="" disabled hidden>Select months</option>
               <option value="3">36 months</option>
               <option value="4">48 months</option>
               <option value="5">60 months</option>
               <option value="6">72 months</option>
+              <option value="7">84 months</option>
             </select>
           </div>
         </div>

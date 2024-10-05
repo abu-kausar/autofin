@@ -40,8 +40,8 @@ const Services: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
                         className='w-[250px] h-14 text-white transition-all duration-300 ease-in-out hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] hover:scale-105 will-change-transform backface-visibility-hidden transform translateZ-0'
                     />
                 </div>
-                <div className='w-1/2 flex flex-col'>
-                    <img src="/images/landing/car.png" alt="car" height={350} className='' />
+                <div className='w-1/2 flex flex-col items-center'>
+                    <img src="/images/landing/car.png" alt="car" className='h-[450px]' />
                     <p className='text-sm font-normal text-[#707277] leading-[28px] text-center'>*For display only, actual credit terms may vary.</p>
                 </div>
             </div>

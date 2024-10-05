@@ -157,18 +157,18 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
                         !loginState &&
                         <div className='flex gap-2 w-full'>
                             <InputField<SigninProps>
-                                label="Firstname"
+                                label="First Name"
                                 name="firstname"
-                                placeholder="Enter your firstname"
+                                placeholder="Enter your first name"
                                 register={register}
                                 error={errors.firstname}
                                 required="Firstname is required"
                             />
 
                             <InputField<SigninProps>
-                                label="Lastname"
+                                label="Last Name"
                                 name="lastname"
-                                placeholder="Enter your lastname"
+                                placeholder="Enter your last name"
                                 register={register}
                                 error={errors.lastname}
                                 required="Lastname is required"
@@ -199,7 +199,7 @@ const AuthModal = ({ isVisible, onClose }: ModalProps) => {
                         error && <p className='text-red-500'>{error}</p>
                     }
 
-                    <button type="submit" className="w-full h-[46px] whitespace-nowrap text-base font-semibold bg-purpleGradient rounded-[43px] text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)]">
+                    <button type="submit" className="w-full h-[46px] whitespace-nowrap text-base font-bold bg-purpleGradient rounded-[43px] text-white">
                         {
                             loading ? (
                                 <div className="flex justify-center items-center gap-2 mx-auto">

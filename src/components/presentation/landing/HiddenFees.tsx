@@ -38,7 +38,7 @@ const HiddenFees: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
                             fees.map((fee, idx) => (
                                 <div key={idx} className='flex items-center gap-2'>
                                     <img src="/images/landing/coloredTick.svg" alt="tick" />
-                                    <p className='text-base font-medium text-bgBlack'>{fee.description}</p>
+                                    <p className='text-base font-semibold text-bgBlack'>{fee.description}</p>
                                 </div>
                             ))
                         }

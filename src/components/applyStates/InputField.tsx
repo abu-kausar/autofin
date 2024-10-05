@@ -103,7 +103,7 @@ const InputField = <T extends FieldValues>({
                 type === 'password' && (
                     <span
                         onClick={() => setShowPassword(!showPassword)}
-                        className='absolute top-[38px] right-6 cursor-pointer'
+                        className='absolute top-[41px] right-6 cursor-pointer'
                         aria-label={showPassword ? "Hide password" : "Show password"} // Accessible button label
                     >
                         {showPassword ? <FaEyeSlash /> : <FaEye />}
