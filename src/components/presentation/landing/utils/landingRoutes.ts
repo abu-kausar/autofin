@@ -38,32 +38,27 @@ export const footerLinks = [
             { 
                 id: 1,
                 title: "Home", 
-                url: "/" 
+                url: "#home" 
             },
             { 
                 id: 2,
-                title: "Get Approved", 
-                url: "/" 
+                title: "Loan Calculator", 
+                url: '#loan-calculator', 
             },
             { 
                 id: 3,
-                title: "Loan Calculator", 
-                url: "/" 
+                title: "Get Approved", 
+                url: '#get-approved', 
             },
             { 
                 id: 4,
                 title: "Services", 
-                url: "/"  
+                url: '#services',
             },
             { 
                 id: 5,
                 title: "Reviews", 
-                url: "/"   
-            },
-            { 
-                id: 6,
-                title: "Log in", 
-                url: "/"   
+                url: '#reviews',  
             },
         ],
     },

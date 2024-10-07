@@ -1,11 +1,28 @@
+'use client'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { EmailIcon, LocationIcon, PhoneIcon } from '../icons/addressIcons'
 import { footerLinks, policyRoutes } from './landing/utils/landingRoutes'
 import Link from 'next/link'
 import { FacebookIcon, InstagramIcon, LinkedinIcon, XIcon, YoutubeIcon } from '../icons/socialIcons'
+import { useAuth } from '@/hooks/AuthProvider'
+import toast from 'react-hot-toast'
+import AuthModal from '../modal/AuthModal'
 
 const Footer = () => {
+  const { user } = useAuth();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const handleModalToggle = () => {
+    {
+      !user ? setIsModalVisible(true) : setIsModalVisible(false);
+    }
+  };
+
+  const closeModal = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <footer className=' bg-bgBlack p-[64px_0_48px_0] mx-auto font-inter'>
       <div className='flex flex-col gap-16 mx-auto w-[1294px] h-fit'>
@@ -40,6 +57,9 @@ const Footer = () => {
                           </Link>
                         ))
                       }
+                      <div onClick={handleModalToggle}>
+                        <p className='text-base font-medium text-[#EAECF0] hover:text-[#BB7AFE] cursor-pointer'>Log in</p>
+                      </div>
                     </div>
                   </div>
                 ))
@@ -53,17 +73,17 @@ const Footer = () => {
                   <div className='h-6 w-6'>
                     <LocationIcon />
                   </div>
-                  <p className='text-base font-semibold text-[#EAECF0]'>1650 Market Street Ste 300 Philadelphia, PA 19103</p>
+                  <p className='text-base font-medium text-[#EAECF0]'>1650 Market Street Ste 300 Philadelphia, PA 19103</p>
                 </div>
 
                 <div className='flex gap-2'>
                   <PhoneIcon />
-                  <p className='text-base font-semibold text-[#EAECF0]'>+1 (877) 288-6346</p>
+                  <p className='text-base font-medium text-[#EAECF0]'>+1 (877) 288-6346</p>
                 </div>
 
                 <div className='flex gap-2'>
                   <EmailIcon />
-                  <p className='text-base font-semibold text-[#EAECF0]'>support@autofincredit.com</p>
+                  <p className='text-base font-medium text-[#EAECF0]'>support@autofincredit.com</p>
                 </div>
               </div>
             </div>
@@ -130,6 +150,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      {user && isModalVisible ? (
+        0
+      ) : (
+        <AuthModal isVisible={isModalVisible} onClose={closeModal} />
+      )}
     </footer>
   )
 }

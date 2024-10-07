@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     fontFamily: {
       inter: ['Inter', 'sans-serif'],
+      avenirNext: ['AvenirNext', 'sans-serif'],
     },
     extend: {
       colors: {

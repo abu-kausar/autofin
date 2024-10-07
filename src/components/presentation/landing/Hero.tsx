@@ -9,11 +9,11 @@ const Hero: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
     const { user } = useAuth();
 
     return (
-        <div id='home' className='relative bg-[#F3F2FD] mx-auto pt-[12px] pb-[200px] mb-[330px]'>
+        <div id='home' className='relative bg-[#F3F2FD] mx-auto pt-[12px] pb-[200px] mb-[230px]'>
             <div className='mx-auto max-w-[1294px] flex items-center mt-[106px]'>
                 <div className='w-1/2 flex flex-col gap-5'>
-                    <h1 className='text-[60px] font-semibold leading-[70px]'>
-                        Affordable Auto Financing Made Simple
+                    <h1 className='font-avenirNext text-[60px] font-bold leading-[67px]'>
+                        Affordable Auto <br /> Financing Made <br />Simple
                     </h1>
 
                     <p className='text-xl font-normal text-[#7D7F84] text-opacity-80'>
