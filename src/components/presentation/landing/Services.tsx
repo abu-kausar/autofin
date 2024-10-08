@@ -8,7 +8,7 @@ const Services: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
     const { user } = useAuth();
 
     return (
-        <div id='services' className='bg-[url("/images/bg.png")] mx-auto py-[96px]'>
+        <div id='services' className='bg-[url("/images/bg.png")] mx-auto py-[96px] overflow-hidden'>
             <div className='mx-auto max-w-[1294px] flex items-center'>
                 <div className='w-1/2 flex flex-col gap-[50px]'>
                     <div className='flex flex-col gap-3'>
@@ -40,13 +40,37 @@ const Services: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
                         className='w-[250px] h-14 text-white hover:shadow-[6px_21px_24.7px_0_rgba(154,87,254,0.19)] duration-300 ease-in-out will-change-transform'
                     />
                 </div>
-                <div className='w-1/2 flex flex-col items-center'>
+
+                <div className='w-1/2 flex flex-col relative'>
+                    <div className='absolute right-[-250px]'> {/* Keep image container absolutely positioned */}
+                        <img src="/images/landing/fullCar.png" alt="car" className='h-[450px]' />
+                    </div>
+                    <p className='text-sm font-normal text-[#707277] leading-[28px] mt-[480px] mr-0 text-center 2xl:text-right'>
+                        *For display only, actual credit terms may vary.
+                    </p>
+                </div>
+
+                {/* <div className='w-1/2 flex flex-col items-center relative'>
+                    <div className='absolute right-[-250px] 2xl:right-[-350px] top-[-500%]'>
+                        <img src="/images/landing/fullCar.png" alt="car" className='h-[450px]' />
+                    </div>
+                    <p className='text-sm font-normal text-[#707277] leading-[28px] text-center mt-4'>*For display only, actual credit terms may vary.</p>
+                </div>  */}
+
+                {/* <div className='w-1/2 flex flex-col items-center relative'>
+                    <div className='absolute right-[-250px] 2xl:right-[-350px] text-center'> 
+                        <img src="/images/landing/car.png" alt="car" className='h-[450px]' />
+                        <p className='text-sm font-normal text-[#707277] leading-[28px] mt-2'>*For display only, actual credit terms may vary.</p> Moved below the image
+                    </div>
+                </div> */}
+
+                {/* <div className='w-1/2 flex flex-col items-center relative'>
                     <img src="/images/landing/car.png" alt="car" className='h-[450px]' />
                     <p className='text-sm font-normal text-[#707277] leading-[28px] text-center'>*For display only, actual credit terms may vary.</p>
-                </div>
+                </div> */}
             </div>
         </div>
     )
 }
 
-export default Services
+export default Services;

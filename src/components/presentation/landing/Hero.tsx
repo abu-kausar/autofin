@@ -46,7 +46,7 @@ const Hero: React.FC<LandingPageProps> = ({ handleModalToggle }) => {
                         </div>
                         <div className='flex flex-col'>
                             <h2 className='text-[30px] text-bgBlack font-bold leading-[42px]'>4.8/5</h2>
-                            <span className='flex gap-[10px]'>
+                            <span id='loan-calculator' className='flex gap-[10px]'>
                                 <img src="/images/landing/stars.svg" alt="stars" />
                                 <p className='text-base font-normal text-bgBlack text-opacity-60 leading-[24px]'>
                                     Rating
